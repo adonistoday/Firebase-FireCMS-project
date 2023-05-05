@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Finder | Sign Up Page</title>
+        <!-- SEO Meta Tags-->
+        <meta
+            name="description"
+            content="Finder - Directory &amp; Listings Bootstrap Template"
+        />
+        <meta
+            name="keywords"
+            content="bootstrap, business, directory, listings, e-commerce, car dealer, city guide, real estate, job board, user account, multipurpose, ui kit, html5, css3, javascript, gallery, slider, touch"
+        />
+        <meta name="author" content="Createx Studio" />
+        <!-- Viewport-->
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!-- Favicon and Touch Icons-->
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="apple-touch-icon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="favicon-16x16.png"
+        />
+        <link rel="manifest" href="site.webmanifest" />
+        <link rel="mask-icon" color="#5bbad5" href="safari-pinned-tab.svg" />
+        <meta name="msapplication-TileColor" content="#766df4" />
+        <meta name="theme-color" content="#ffffff" />
+        <!-- Page loading styles-->
+        <style>
+            .page-loading {
+                position: fixed;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                -webkit-transition: all 0.4s 0.2s ease-in-out;
+                transition: all 0.4s 0.2s ease-in-out;
+                background-color: #fff;
+                opacity: 0;
+                visibility: hidden;
+                z-index: 9999;
+            }
+            .page-loading.active {
+                opacity: 1;
+                visibility: visible;
+            }
+            .page-loading-inner {
+                position: absolute;
+                top: 50%;
+                left: 0;
+                width: 100%;
+                text-align: center;
+                -webkit-transform: translateY(-50%);
+                transform: translateY(-50%);
+                -webkit-transition: opacity 0.2s ease-in-out;
+                transition: opacity 0.2s ease-in-out;
+                opacity: 0;
+            }
+            .page-loading.active > .page-loading-inner {
+                opacity: 1;
+            }
+            .page-loading-inner > span {
+                display: block;
+                font-size: 1rem;
+                font-weight: normal;
+                color: #666276;
+            }
+            .page-spinner {
+                display: inline-block;
+                width: 2.75rem;
+                height: 2.75rem;
+                margin-bottom: 0.75rem;
+                vertical-align: text-bottom;
+                border: 0.15em solid #bbb7c5;
+                border-right-color: transparent;
+                border-radius: 50%;
+                -webkit-animation: spinner 0.75s linear infinite;
+                animation: spinner 0.75s linear infinite;
+            }
+            @-webkit-keyframes spinner {
+                100% {
+                    -webkit-transform: rotate(360deg);
+                    transform: rotate(360deg);
+                }
+            }
+            @keyframes spinner {
+                100% {
+                    -webkit-transform: rotate(360deg);
+                    transform: rotate(360deg);
+                }
+            }
+            .label1 {
+                cursor: pointer;
+                background-color: light;
+                color: #373636;
+                padding: 10px 20px;
+            }
+            #upload {
+                opacity: 0;
+                position: absolute;
+                z-index: -1;
+            }
+        </style>
+        <!-- Page loading scripts-->
+        <script>
+            (function () {
+                window.onload = function () {
+                    var preloader = document.querySelector('.page-loading');
+                    preloader.classList.remove('active');
+                    setTimeout(function () {
+                        preloader.remove();
+                    }, 2000);
+                };
+            })();
+        </script>
+        <!-- Vendor Styles-->
+        <link
+            rel="stylesheet"
+            media="screen"
+            href="vendor/simplebar/dist/simplebar.min.css"
+        />
+        <!-- Main Theme Styles + Bootstrap-->
+        <link rel="stylesheet" media="screen" href="css/theme.min.css" />
+    </head>
+    <!-- Body-->
+    <body class="bg-secondary">
+        <!-- Page loading spinner-->
+        <div class="page-loading active">
+            <div class="page-loading-inner">
+                <div class="page-spinner"></div>
+                <span>Loading...</span>
+            </div>
+        </div>
+        <main class="page-wrapper">
+            <!-- Page content-->
+            <div
+                class="container-fluid d-flex h-100 align-items-center justify-content-center py-4 py-sm-5"
+            >
+                <div class="card card-body" style="max-width: 805px">
+                    <a
+                        class="position-absolute top-0 end-0 nav-link fs-sm py-1 px-2 mt-3 me-3"
+                        href="#"
+                        onclick="window.history.go(-1); return false;"
+                    ></a>
+                    <div class="row mx-0 d-flex justify-content-center">
+                        <!-- <div class="col-md-6 border-end-md p-2 p-sm-5">
+              <h2 class="h3 mb-4 mb-sm-5">Join Finder.<br>Get premium benefits:</h2>
+              <ul class="list-unstyled mb-4 mb-sm-5">
+                <li class="d-flex mb-2"><i class="fi-check-circle text-primary mt-1 me-2"></i><span>Add and promote your listings</span></li>
+                <li class="d-flex mb-2"><i class="fi-check-circle text-primary mt-1 me-2"></i><span>Easily manage your wishlist</span></li>
+                <li class="d-flex mb-0"><i class="fi-check-circle text-primary mt-1 me-2"></i><span>Leave reviews</span></li>
+              </ul><img class="d-block mx-auto" src="img/signin-modal/signup.svg" width="344" alt="Illustartion">
+              <div class="mt-sm-4 pt-md-3">Already have an account? <a href="signin-light.html">Sign in</a></div>
+            </div> -->
+                        <h2 class="h2 mb-3 mb-sm-3 text-center">
+                            Upload your receipt
+                        </h2>
+                        <p class="fs-5 mb-3 mb-sm-3 text-center">
+                            Turn your receipts into Cash!
+                        </p>
+                        <div
+                            class="col-md-11 px-2 pt-3 pb-4 px-sm-5 pb-sm-3 pt-md-3"
+                        >
+                            <!-- <a class="btn btn-outline-info w-100 mb-3" href="#"><i class="fi-google fs-lg me-1"></i>Sign in with Google</a><a class="btn btn-outline-info w-100 mb-3" href="#"><i class="fi-facebook fs-lg me-1"></i>Sign in with Facebook</a> -->
+                            <!-- <div class="d-flex align-items-center py-3 mb-3">
+                <hr class="w-100">
+                <div class="px-3">Or</div>
+                <hr class="w-100">
+              </div> -->
+
+                            <form class="needs-validation" novalidate>
+                                <!-- <div class="mb-4">
+                  <label class="form-label" for="signup-name">Full name</label>
+                  <input class="form-control" type="text" id="signup-name" placeholder="Enter your full name" required>
+                </div> -->
+                                <div class="mb-4">
+                                    <label class="form-label" for="signup-name"
+                                        >Business Name</label
+                                    >
+                                    <input
+                                        class="form-control"
+                                        type="text"
+                                        id="business-name"
+                                        placeholder="Enter your business name"
+                                        required
+                                    />
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label" for="signup-email"
+                                        >Email (please use the same email you
+                                        used to Sign up to Maiinn
+                                        Rewards)</label
+                                    >
+                                    <input
+                                        class="form-control"
+                                        type="email"
+                                        id="business-email"
+                                        placeholder="Enter your email"
+                                        required
+                                    />
+                                </div>
+
+                                <label class="form-label" for=""
+                                    >Please ensure that the receipt:
+                                    <br />
+                                    1. Clearly shows the name of the business
+                                    and matches what is provided above.
+                                    <br />
+                                    2. Clearly shows the date of the receipt.
+                                    <br />
+                                    3. Is not a duplicate of another receipt.
+                                    <br />
+                                    4. Can be clearly read
+                                    <br />
+                                    5. Is not a receipt from an online only
+                                    business (eg. Amazon). Receipts uploaded
+                                    from physical businesses that also have
+                                    e-commerce websites will be accepted.
+                                    <br />
+                                    6. Is less than 2 week's old. Any receipt
+                                    older than 2 week's will not be accepted.
+                                    <br />
+                                    7. Is from an Australian Business.</label
+                                >
+                                <!-- File input -->
+                                <div class="mb-3">
+                                    <label
+                                        class="label1 border border-dark rounded text-center d-flex justify-content-center"
+                                        for="upload"
+                                        >+ Upload a file</label
+                                    >
+                                    <input
+                                        type="file"
+                                        style="display: none"
+                                        name="photo"
+                                        id="upload"
+                                        multiple
+                                    />
+                                    <ul id="file-list"></ul>
+                                </div>
+                                <button
+                                    id="upload_receipt_btn"
+                                    class="btn btn-accent btn-lg w-100 mt-2"
+                                    type="submit"
+                                >
+                                    Submit
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- Back to top button--><a
+            class="btn-scroll-top"
+            href="#top"
+            data-scroll
+            ><span class="btn-scroll-top-tooltip text-muted fs-sm me-2"
+                >Top</span
+            ><i class="btn-scroll-top-icon fi-chevron-up"> </i
+        ></a>
+        <!-- Vendor scrits: js libraries and plugins-->
+        <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="vendor/simplebar/dist/simplebar.min.js"></script>
+        <script src="vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+        <!-- Main theme script-->
+        <script src="js/theme.min.js"></script>
+        <script type="module">
+            import {
+                getStorage,
+                ref,
+                uploadBytesResumable,
+                getDownloadURL,
+            } from 'https://www.gstatic.com/firebasejs/9.20.0/firebase-storage.js';
+            import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js';
+            import {
+                collection,
+                doc,
+                getDoc,
+                getDocs,
+                getFirestore,
+                query,
+                where,
+                limit,
+                setDoc,
+                updateDoc,
+                addDoc,
+            } from 'https://www.gstatic.com/firebasejs/9.20.0/firebase-firestore.js';
+            const firebaseConfig = {
+                apiKey: 'AIzaSyDm6z01-F-JhvfhWZt0abyU5OchwyyYdMc',
+                authDomain: 'maiinn.firebaseapp.com',
+                projectId: 'maiinn',
+                storageBucket: 'maiinn.appspot.com',
+                messagingSenderId: '72086465434',
+                appId: '1:72086465434:web:203eef22bd420f80816823',
+                measurementId: 'G-JTL518XJMC',
+            };
+
+            // Create a FilePond instance with options
+            const pond = FilePond.create(productImage, {
+                allowMultiple: true,
+                maxFiles: 10,
+                maxFileSize: '2MB',
+                acceptedFileTypes: [
+                    'image/png',
+                    'image/jpeg',
+                    'video/mp4',
+                    'video/mov',
+                ],
+                labelIdle:
+                    '<div class="btn btn-primary mb-3"><i class="fi-cloud-upload me-1"></i>Upload photos </div><div>or drag them in</div>',
+                required: true,
+            });
+
+            //Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            const storage = getStorage(app);
+            // Create the file metadata
+            /** @type {any} */
+            const metadata = {
+                contentType: 'image/jpeg',
+            };
+
+            document
+                .getElementById('upload')
+                .addEventListener('change', function (event) {
+                    var fileList = event.target.files; // Get the list of selected files
+                    var fileListContainer =
+                        document.getElementById('file-list'); // Get the file list container element
+                    fileListContainer.innerHTML = ''; // Clear the file list container
+
+                    // Loop through the list of files and create list items to display file names
+                    for (var i = 0; i < fileList.length; i++) {
+                        var listItem = document.createElement('li');
+                        listItem.textContent = fileList[i].name;
+                        fileListContainer.appendChild(listItem);
+                    }
+                });
+
+            var name = document.getElementById('business_name').value;
+            var email = document.getElementById('business_email').value;
+            var upload = document.getElementById('upload');
+
+            document
+                .getElementById('upload_receipt_btn')
+                .addEventListener('click', async () => {
+                    event.preventDefault();
+                    const prodata = {
+                        businessEmail: business_email,
+                        businessPhone: business_phone,
+                        firstName: first_name,
+                    };
+
+                    const productRef = collection(db, 'claimBusiness');
+                    try {
+                        const docRef = await setDoc(
+                            doc(productRef, user_email),
+                            prodata
+                        );
+                        window.location.href = 'business-screen-claimed.html';
+                        console.log('Document written with ID: ');
+                    } catch (e) {
+                        console.error('Error adding document: ', e);
+                    }
+                });
+        </script>
+    </body>
+</html>

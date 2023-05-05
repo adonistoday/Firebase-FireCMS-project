@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Finder | City Guide | Home v.1</title>
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="Finder - Directory &amp; Listings Bootstrap Template">
+    <meta name="keywords" content="bootstrap, business, directory, listings, e-commerce, car dealer, city guide, real estate, job board, user account, multipurpose, ui kit, html5, css3, javascript, gallery, slider, touch">
+    <meta name="author" content="Createx Studio">
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon and Touch Icons-->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" color="#5bbad5" href="safari-pinned-tab.svg">
+    <meta name="msapplication-TileColor" content="#766df4">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Page loading styles-->
+    <style>
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #666276;;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #bbb7c5;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      .bsr-photo {
+        height: 7vw;
+      }
+      @media (max-width: 768px) {
+        .card.col-6.m-2{
+          width: 100%;
+        }
+
+        #uptitle{
+          height: 16vh !important;
+        }
+        .hidden-sp {
+        display: none;
+      }
+      .navbar-brand {
+        width: 100%;
+        margin-right: 0 !important;
+      }
+      .navbar-toggler {
+        position: absolute;
+        top: 10px;
+        right: 0;
+      }
+      .card.col-6.m-2 {
+        width: 100%;
+      }
+
+      .card.col-4.m-4 {
+        width: 100%;
+      }
+
+      .col.mb-5 {
+        width: 100%;
+      }
+
+      .card.col-7.m-2 {
+        width: 100%;
+        margin: 0px !important;
+      }
+
+      .card.col-4.m-4 {
+        width: 100% !important;
+        margin: 0px !important;
+      }
+
+      #uptitle {
+        height: 16vh !important;
+      }
+
+      .mt-2.btn.btn-danger.btn-sm.rounded-pill.ms-2.order-lg-3 {
+        width: 96% !important;
+        margin-left: 0px !important;
+      }
+
+      .input-group.input-group-lg.border-end-md {
+        width: 100% !important;
+      }
+      header form{
+        width: 100%;
+      }
+      header form .btn-search{
+        margin-left:0 !important;
+      }
+      .link-for-business{
+        width: 96% !important;
+        margin-left: 0 !important;
+      }
+      }
+      .card.col-4.m-4 {
+        margin-bottom: 180px !important;
+      }
+    </style>
+    <!-- Page loading scripts-->
+    <script>
+      (function () {
+        window.onload = function () {
+          var preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 2000);
+        };
+      })();
+      
+    </script>
+    <!-- Vendor Styles-->
+    <link rel="stylesheet" media="screen" href="vendor/simplebar/dist/simplebar.min.css"/>
+    <link rel="stylesheet" media="screen" href="vendor/tiny-slider/dist/tiny-slider.css"/>
+    <link rel="stylesheet" media="screen" href="vendor/flatpickr/dist/flatpickr.min.css"/>
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="css/theme.min.css">
+  </head>
+  <!-- Body-->
+  <body>
+    <!-- Page loading spinner-->
+    <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Loading...</span>
+      </div>
+    </div>
+    <main class="page-wrapper">
+      
+    <!-- Navbar-->
+    <header class="navbar navbar-expand-lg navbar-light fixed-top" data-scroll-header style="
+     background-color: rgba(255,255,255,1);">
+      <div class="container">
+        <a class="navbar-brand me-5 me-xl-5" href="home.html"><img class="d-block mx-auto" src="img/logo/Logo.png"
+            width="116" alt="Finder"></a>
+        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span
+            class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse order-lg-2" id="navbarNav">
+          <!-- Search form-->
+          <div class="mt-2 d-sm-flex">
+            <form class="form-group d-block d-md-flex position-relative rounded-md-pill">
+              <div class="input-group input-group-lg border-end-md" style="width: 60%;"><span
+                  class="input-group-text text-muted rounded-pill ps-3">
+                  <i class="fi-search"></i></span>
+                <input class="form-control" type="text" placeholder="What are you looking for?">
+              </div>
+              <hr class="d-md-none my-2">
+              <div class="">
+                <div class="dropdown mb-sm-0 mb-3" data-bs-toggle="select">
+                  <button class="btn btn-link btn-lg dropdown-toggle ps-2 ps-sm-3" type="button"
+                    data-bs-toggle="dropdown"><i class="fi-list me-2"></i><span
+                      class="dropdown-toggle-label">Businesses</span></button>
+                  <input type="hidden">
+                  <ul class="dropdown-menu" style="margin-top: 0px !important;">
+                    <li><a class="dropdown-item" href="#"><i class="fi-bed fs-lg opacity-60 me-2"></i><span
+                          class="dropdown-item-label">Businesses</span></a></li>
+
+                    <li><a class="dropdown-item" href="#"><i class="fi-shopping-bag fs-lg opacity-60 me-2"></i><span
+                          class="dropdown-item-label">Products</span></a></li>
+                  </ul>
+                </div>
+              </div>
+              <hr class="d-md-none my-2">
+              <div class="d-sm-flex">
+                <input class="form-control" type="text" placeholder="Where?">
+              </div>
+              <hr class="d-md-none my-2">
+              <button class="btn btn-danger btn-lg rounded-pill w-100 w-md-auto ms-sm-3 btn-search" type="button">Search</button>
+            </form>
+          </div>
+          <div class="text-center d-lg-none">
+            <a class="mt-2 btn btn-danger btn-sm rounded-pill ms-2 order-lg-3"
+              href="city-guide-add-business.html">Maiinn&nbsp;Rewards</a>
+          </div>
+          <div class="text-center">
+            <a class="mt-2 btn btn-sm text-danger d-lg-block order-lg-3 link-for-business" href="#signin-modal" data-bs-toggle="modal"><i
+                class="fi-user me-2"></i>For Businesses</a>
+          </div>
+          <div class="text-center hidden-sp">
+            <a class="mt-2 btn btn-danger btn-sm rounded-pill ms-2 order-lg-3"
+              href="city-guide-add-business.html">Maiinn&nbsp;Rewards</a>
+          </div>
+        </div>
+      </div>
+    </header>
+      <!-- Page content-->
+      <div class="w-100 bg-info" id="uptitle" style="height: 16vh;">
+        <h3 class="text-center text-light">Business Name Goes here</h3>
+        <h6 class="text-center text-light">Retail Store in Parramatta, NSW</h6>
+      </div>
+      <div class="w-100 bg-info"  style="height: 15vh;">
+        <h2 class="text-center text-light">Woolworths Parramatta
+        </h2>
+        <h5 class="text-center text-light">Retail Store in Parramatta, NSW</h5>
+      </div>
+      <!-- Hero-->
+      <section class="container py-1 mt-1 mb-lg-3 border-bottom">
+        <div class="row justify-content-between">
+           <!-- No image -->
+            <div class="card col-7 m-2">
+              <div class="">
+                <p class="card-text fs-lg mb-2 h5">Phone Number:</p>
+                <p class="mb-2 ">(02) 9325 4315</p>
+                <p class="card-text fs-lg mb-2 h5">Business Address:</p>
+                <p class="mb-2 ">83 Macquarie St, Parramatta NSW 2150</p>
+              </div>
+              <div>
+                <iframe style="height: 350px;" src="http://maps.google.com/maps?q=12.927923,77.627108&z=15&output=embed"></iframe>
+            </div>
+                
+            </div>
+            <!-- No image -->
+            <div class="card col-4 m-4">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Opening Hours</h5>
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h6 class="mb-0">Monday</h6>
+                            <p class="fs-sm mb-0">8:00 AM - 9:00PM</p>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                      <h6 class="mb-0">Tuesday</h6>
+                      <p class="fs-sm mb-0">8:00 AM - 9:00PM</p>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                      <h6 class="mb-0">Wednesday</h6>
+                      <p class="fs-sm mb-0">8:00 AM - 9:00PM</p>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h6 class="mb-0">Thursday</h6>
+                    <p class="fs-sm mb-0">8:00 AM - 9:00PM</p>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h6 class="mb-0">Friday</h6>
+                    <p class="fs-sm mb-0">8:00 AM - 9:00PM</p>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h6 class="mb-0">Saturday</h6>
+                    <p class="fs-sm mb-0">8:00 AM - 9:00PM</p>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h6 class="mb-0">Sunday</h6>
+                    <p class="fs-sm mb-0">8:00 AM - 9:00PM</p>
+                  </div>
+                </div>
+            </div>
+        </div>
+        
+      </section>
+      <section class="py-1 bg-light">
+        <div class="container px-4 px-lg-5 mt-1">
+            <h2 class="fw-bolder mb-2">54 products</h2>
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="img/Product_Image's/Image 4.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Fancy Product</h5>
+                                <!-- Product price-->
+                                $40.00
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        
+                        <!-- Product image-->
+                        <img class="card-img-top" src="img/Product_Image's/Image 15 .jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Special Item</h5>
+                                <!-- Product reviews-->
+                                <div class="d-flex justify-content-center small text-warning mb-2">
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                </div>
+                                <!-- Product price-->
+                                
+                                $18.00
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        
+                        <!-- Product image-->
+                        <img class="card-img-top" src="img/Product_Image's/Image 20.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Sale Item</h5>
+                                <!-- Product price-->
+                                
+                                $25.00
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="img/Product_Image's/Image 33.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Popular Item</h5>
+                                <!-- Product reviews-->
+                                <div class="d-flex justify-content-center small text-warning mb-2">
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                </div>
+                                <!-- Product price-->
+                                $40.00
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="img/Product_Image's/Image 34.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Fancy Product</h5>
+                                <!-- Product price-->
+                                $80.00
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        
+                        <!-- Product image-->
+                        <img class="card-img-top" src="img/Product_Image's/Image 30.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Special Item</h5>
+                                <!-- Product reviews-->
+                                <div class="d-flex justify-content-center small text-warning mb-2">
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                </div>
+                                <!-- Product price-->
+                                
+                                $18.00
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        
+                        <!-- Product image-->
+                        <img class="card-img-top" src="img/Product_Image's/Image 29.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Sale Item</h5>
+                                <!-- Product price-->
+                                
+                                $25.00
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="img/Product_Image's/Image 27.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Popular Item</h5>
+                                <!-- Product reviews-->
+                                <div class="d-flex justify-content-center small text-warning mb-2">
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                </div>
+                                <!-- Product price-->
+                                $40.00
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
+  <!-- Footer-->
+
+  <footer class="footer bg-dark text-light">
+    <div class="m-3 justify-content-between">
+      <div class="row gy-4 d-flex align-items-center">
+        <div class="col-lg-2 text-center">
+          <a class="d-inline-block" href="home.html"><img src="img/logo/Logo White.png" width="100" alt="Logo"></a>
+        </div>
+        <div class="col-lg-2 text-center">
+          <h3 class="fs-base text-light mb-0">Home</h3>
+        </div>
+
+        <div class="col-lg-2 text-center">
+          <h3 class="fs-base text-light mb-0">Rewards</h3>
+        </div>
+        <div class="col-lg-2 text-center">
+          <h3 class="fs-base text-light mb-0">Contact</h3>
+        </div>
+        <!-- Subscription form-->
+        <div class="col-lg-4">
+          <form class="form-group form-group-light rounded-pill" style="max-width: 500px;">
+            <div class="input-group input-group-sm"><span class="input-group-text text-muted"><i
+                  class="fi-mail"></i></span>
+              <input class="form-control" type="email" placeholder="Your email">
+            </div>
+            <button class="btn btn-primary btn-sm rounded-pill" type="button">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </footer>
+    <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon fi-chevron-up">   </i></a>
+    <!-- Vendor scrits: js libraries and plugins-->
+    <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/simplebar/dist/simplebar.min.js"></script>
+    <script src="vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="vendor/tiny-slider/dist/min/tiny-slider.js"></script>
+    <script src="vendor/flatpickr/dist/flatpickr.min.js"></script>
+    <!-- Main theme script-->
+    <script src="js/theme.min.js"></script>
+  </body>
+</html>

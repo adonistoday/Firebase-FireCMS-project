@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Finder | File uploader</title>
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="Finder - Directory &amp; Listings Bootstrap Template">
+    <meta name="keywords" content="bootstrap, business, directory, listings, e-commerce, car dealer, city guide, real estate, job board, user account, multipurpose, ui kit, html5, css3, javascript, gallery, slider, touch">
+    <meta name="author" content="Createx Studio">
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon and Touch Icons-->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" color="#5bbad5" href="safari-pinned-tab.svg">
+    <meta name="msapplication-TileColor" content="#766df4">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Vendor Styles-->
+    <link rel="stylesheet" media="screen" href="vendor/simplebar/dist/simplebar.min.css"/>
+    <link rel="stylesheet" media="screen" href="vendor/prismjs/themes/prism.css"/>
+    <link rel="stylesheet" media="screen" href="vendor/prismjs/plugins/toolbar/prism-toolbar.css"/>
+    <link rel="stylesheet" media="screen" href="vendor/prismjs/plugins/line-numbers/prism-line-numbers.css"/>
+    <link rel="stylesheet" media="screen" href="vendor/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css"/>
+    <link rel="stylesheet" media="screen" href="vendor/filepond/dist/filepond.min.css"/>
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="css/theme.min.css">
+  </head>
+  <style>
+      #success-alert {
+        position: fixed !important;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        /* display: none; */
+        opacity: 0;
+        z-index: 9999;
+      }
+  </style>
+  <!-- Body-->
+  <body>
+  <body class="bg-secondary">
+
+    <main class="page-wrapper">
+      
+      <!-- Page content-->
+      <div class="container-fluid d-flex h-100 align-items-center justify-content-center py-4 py-sm-5">
+        <div class="card card-body" style="max-width: 940px">
+          <div class="row mx-0 d-flex justify-content-center">
+            <div class="col-md-6 px-2 pt-2 pb-4 px-sm-5 pb-sm-5 pt-md-2">
+
+              <h2 class="h3 mb-2 mb-sm-2 text-center">Add Product</h2>
+              <!-- <div id="success-alert" class="alert alert-success mt-4 d-flex" role="alert">
+                <i class="fi-check-circle me-2 me-sm-3 lead"></i>
+                <div id="response_content"></div>
+              </div> -->
+              <!-- Danger alert -->
+              <div id="success-alert" class="alert alert-danger d-flex mt-4" role="alert">
+                <i class="fi-x-circle me-2 me-sm-3 lead"></i>
+                <div id="response_content"></div>
+              </div>
+
+              <form class="needs-validation" novalidate id="">
+                <div class="mb-4">
+                    <label class="form-label" for="product-name">Product Name</label>
+                    <input class="form-control" type="text" id="product-name" placeholder="Enter product name" required>
+                 </div>
+                <!-- Format: Credit card CVC -->
+                <div class="mb-3">
+                  <label class="form-label" for="format-card-cvc">Product Price</label>
+                  <input class="form-control" type="text" id="format-card-cvc" data-format="cvc" placeholder="Enter product price" required>
+                </div>
+                <!-- Textarea -->
+                <div class="mb-3">
+                    <label for="product-description" class="form-label">Product Description</label>
+                    <textarea class="form-control" id="description" rows="5" required></textarea>
+                </div>
+                <hr>
+                <!-- Multiple file upload: Grid of files + File type, size and quantity validation (Gallery) -->
+                <input id="product-image" class="file-uploader file-uploader-grid" type="file" multiple data-max-files="10" data-max-file-size="2MB" accept="image/png, image/jpeg, video/mp4, video/mov" data-label-idle='<div class="btn btn-primary mb-3"><i class="fi-cloud-upload me-1"></i>Upload photos </div><div>or drag them in</div>'>
+                <button id="addProduct-button" class="btn btn-primary btn-lg w-100 mt-3">Add Product</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon fi-chevron-up">   </i></a>
+  <!-- Vendor scripts: js libraries and plugins-->
+  <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/simplebar/dist/simplebar.min.js"></script>
+  <script src="vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+  <script src="vendor/prismjs/components/prism-core.min.js"></script>
+  <script src="vendor/prismjs/components/prism-markup.min.js"></script>
+  <script src="vendor/prismjs/components/prism-clike.min.js"></script>
+  <script src="vendor/prismjs/components/prism-javascript.min.js"></script>
+  <script src="vendor/prismjs/components/prism-pug.min.js"></script>
+  <script src="vendor/prismjs/plugins/toolbar/prism-toolbar.min.js"></script>
+  <script src="vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+  <script src="vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js"></script>
+  <script src="vendor/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.min.js"></script>
+  <script src="vendor/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.min.js"></script>
+  <script src="vendor/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.js"></script>
+  <script src="vendor/filepond-plugin-image-crop/dist/filepond-plugin-image-crop.min.js"></script>
+  <script src="vendor/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.min.js"></script>
+  <script src="vendor/filepond-plugin-image-transform/dist/filepond-plugin-image-transform.min.js"></script>
+  <script src="vendor/filepond/dist/filepond.min.js"></script>
+  <script src="vendor/filepond/dist/filepond.js"></script>
+  <script src="vendor/nouislider/dist/nouislider.min.js"></script>
+  <script src="vendor/cleave.js/dist/cleave.min.js"></script>
+  <!-- Main theme script-->
+  <script src="js/theme.min.js"></script>
+  <script type="module">
+    //import { create } from "/vendor/filepond/dist/filepond.js";
+    import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-storage.js";
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
+    import { collection, doc,getDoc,getDocs,getFirestore,query,where,limit,setDoc,updateDoc, addDoc } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-firestore.js";
+    const firebaseConfig = {
+        apiKey: "AIzaSyDm6z01-F-JhvfhWZt0abyU5OchwyyYdMc",
+        authDomain: "maiinn.firebaseapp.com",
+        projectId: "maiinn",
+        storageBucket: "maiinn.appspot.com",
+        messagingSenderId: "72086465434",
+        appId: "1:72086465434:web:203eef22bd420f80816823",
+        measurementId: "G-JTL518XJMC"
+    };
+
+    var productName=document.getElementById("product-name");
+    var productPrice=document.getElementById("format-card-cvc");
+    var productDescription=document.getElementById("description");
+    var productImage=document.getElementById("product-image");
+    var addProduct_button=document.getElementById("addProduct-button");
+    const urlParams = new URLSearchParams(window.location.search);
+    const email = urlParams.get('email');
+    
+  // Create a FilePond instance with options
+    const pond = FilePond.create(productImage, {
+      allowMultiple: true,
+      maxFiles: 10,
+      maxFileSize: '2MB',
+      acceptedFileTypes: ['image/png', 'image/jpeg', 'video/mp4', 'video/mov'],
+      labelIdle: '<div class="btn btn-primary mb-3"><i class="fi-cloud-upload me-1"></i>Upload photos </div><div>or drag them in</div>',
+      required: true,
+    });
+    
+    //Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const storage = getStorage(app);
+    // Create the file metadata
+    /** @type {any} */
+    const metadata = {
+      contentType: 'image/jpeg'
+    };
+
+    const form = document.querySelector("form");
+    addProduct_button.addEventListener("click", async () => {
+        // Prevent the default submission behavior
+       event.preventDefault();
+        const inputs = form.querySelectorAll("input[required]");
+        const isFormValid = Array.from(inputs).every((input) => input.value.trim() !== "");
+        if (isFormValid) {
+          var prodata={
+            productName:productName.value,
+            productPrice:productPrice.value,
+            productDescription:productDescription.value,
+            image:'images/' + pond.getFiles()[0].filename,
+            email:email,
+          }
+          console.log(prodata);
+          const db=getFirestore(app);
+          const productRef = collection(db, "product-list");
+          try {
+            const docRef = await addDoc(productRef, prodata);
+            console.log("Document written with ID: ", docRef.id);
+          } catch (e) {
+            console.error("Error adding document: ", e);
+          }
+          // const docRef = doc(db, "business-list", email);
+          // const docSnap = await getDoc(docRef);
+          // if (docSnap.exists()) {
+          //   console.log("Document data:", docSnap.data());
+          // } else {
+          //   // docSnap.data() will be undefined in this case
+          //   console.log("No such document!");
+          // }
+          // const businessRef=collection(db,"business-list");
+          // const docsSnap = await getDocs(businessRef);
+          // const q = query(businessRef, where("email", "==", email),limit(1));
+          
+          // try {
+          //   const querySnapshot = await getDocs(q);
+          //   if (!querySnapshot.empty) {
+          //     const docSnapshot = querySnapshot.docs[0];
+          //     // Access fields of the document using docSnapshot.data() method
+          //     const data = docSnapshot.data();
+          //     // Add a new field to the document data
+          //     const newData = { ...data, Products:prodata };
+          //     console.log(newData);
+          //     // Add a new document in collection "cities"
+          //     await updateDoc(docSnapshot.ref, newData);
+          //   } else {
+          //     console.log("No matching documents.");
+          //   }
+          // } catch (error) {
+          //   console.log("Error getting documents: ", error);
+          // } 
+          // const querySnapshot = await db
+          //     .collection("business-list")
+
+          //     .where("email", "==", data.email)
+          //     .where("business_name", "==", data.business_name)
+          //     .limit(1)
+          //     .get();
+          // const docId = querySnapshot.docs[0].id;
+          // console.log(`Document ID: ${docId}`);
+          //const docRef = db.collection("business-list").doc(docId);
+          //await docRef.update(data);
+          console.log(pond.getFiles()[0].filename);
+          // Upload file and metadata to the object 'images/mountains.jpg'
+          
+          const storageRef = ref(storage, 'images/' + pond.getFiles()[0].filename);
+          const uploadTask = uploadBytesResumable(storageRef, pond.getFiles()[0].file, metadata);
+
+            // Listen for state changes, errors, and completion of the upload.
+            await uploadTask.on('state_changed',
+              (snapshot) => {
+                // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+                const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                console.log('Upload is ' + progress + '% done');
+                switch (snapshot.state) {
+                  case 'paused':
+                    console.log('Upload is paused');
+                    break;
+                  case 'running':
+                    console.log('Upload is running');
+                    break;
+                }
+              }, 
+              (error) => {
+                // A full list of error codes is available at
+                // https://firebase.google.com/docs/storage/web/handle-errors
+                switch (error.code) {
+                  case 'storage/unauthorized':
+                    // User doesn't have permission to access the object
+                    break;
+                  case 'storage/canceled':
+                    // User canceled the upload
+                    break;
+
+                  // ...
+
+                  case 'storage/unknown':
+                    // Unknown error occurred, inspect error.serverResponse
+                    break;
+                }
+              },
+              () => {
+                // Upload completed successfully, now we can get the download URL
+
+                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                  console.log('File available at', downloadURL);
+                });
+                window.location.href="business-admin.html?email=together@gmail.com";
+              }
+            );
+            } else {
+              console.log("you must fill all the fields!");
+              displayAlert("you must fill all the fields!");
+            }
+
+    });
+    function displayAlert(str) {
+      var successAlert = document.getElementById("success-alert");
+      var response_content=document.getElementById("response_content");
+      successAlert.style.cssText = 'opacity:1';
+      response_content.innerHTML=str;
+      setTimeout(function(){
+        successAlert.style.cssText = 'opacity:0';
+      }, 2000); // 3000 milliseconds = 3 seconds
+    }
+// addProduct_button.addEventListener("click", async ()=>
+//     {
+//       event.preventDefault();
+//         var data={
+//         productName:productName.value,
+//         productPrice:productPrice.value,
+//         productDescription:productDescription.value,
+//         email:email,
+//       }
+      
+//       // const inputs = form.querySelectorAll("input[required]");
+//       //   const isFormValid = Array.from(inputs).every((input) => input.value.trim() !== "");
+//       //   //console.log(isFormValid);
+//       //   const flag=true;
+//       console.log(data);
+//       if (data.productName!=''&&data.productPrice!=''&&data.productDescription!='') {
+//       console.log(pond.getFiles()[0].filename);
+//       // Upload file and metadata to the object 'images/mountains.jpg'
+    
+//       const storageRef = ref(storage, 'images/' + pond.getFiles()[0].filename);
+//       const uploadTask = uploadBytesResumable(storageRef, pond.getFiles()[0].file, metadata);
+
+//          // Listen for state changes, errors, and completion of the upload.
+//         await uploadTask.on('state_changed',
+//            (snapshot) => {
+//             // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+//             const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+//             console.log('Upload is ' + progress + '% done');
+//             switch (snapshot.state) {
+//               case 'paused':
+//                 console.log('Upload is paused');
+//                 break;
+//               case 'running':
+//                 console.log('Upload is running');
+//                 break;
+//             }
+//           }, 
+//           (error) => {
+//             // A full list of error codes is available at
+//             // https://firebase.google.com/docs/storage/web/handle-errors
+//             switch (error.code) {
+//               case 'storage/unauthorized':
+//                 // User doesn't have permission to access the object
+//                 break;
+//               case 'storage/canceled':
+//                 // User canceled the upload
+//                 break;
+
+//               // ...
+
+//               case 'storage/unknown':
+//                 // Unknown error occurred, inspect error.serverResponse
+//                 break;
+//             }
+//           }, 
+//           () => {
+//             // Upload completed successfully, now we can get the download URL
+//             getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+//               console.log('File available at', downloadURL);
+//             });
+//           }
+//         );
+//         }
+//       });
+   </script>
+</body>
+</html>

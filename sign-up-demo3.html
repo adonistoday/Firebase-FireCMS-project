@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Finder | Sign Up Page</title>
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="Finder - Directory &amp; Listings Bootstrap Template">
+    <meta name="keywords" content="bootstrap, business, directory, listings, e-commerce, car dealer, city guide, real estate, job board, user account, multipurpose, ui kit, html5, css3, javascript, gallery, slider, touch">
+    <meta name="author" content="Createx Studio">
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon and Touch Icons-->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" color="#5bbad5" href="safari-pinned-tab.svg">
+    <meta name="msapplication-TileColor" content="#766df4">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Page loading styles-->
+    <style>
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #666276;;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #bbb7c5;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      
+    </style>
+    <!-- Page loading scripts-->
+    <script>
+      (function () {
+        window.onload = function () {
+          var preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 2000);
+        };
+      })();
+      
+    </script>
+    <!-- Vendor Styles-->
+    <link rel="stylesheet" media="screen" href="vendor/simplebar/dist/simplebar.min.css"/>
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="css/theme.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+  </head>
+  <!-- Body-->
+  <body class="bg-secondary">
+    <!-- Page loading spinner-->
+    <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Loading...</span>
+      </div>
+    </div>
+    <h2 class="mt-4 text-center">Sign up:</h2>
+    <main class="page-wrapper">
+      <!-- Page content-->
+      <div class="container-fluid d-flex h-100 align-items-center justify-content-center py-4 ">
+        <div class="card card-body" style="max-width: 940px"><a class="position-absolute top-0 end-0 nav-link fs-sm py-1 px-2 mt-3 me-3" href="#" onclick="window.history.go(-1); return false;"></a>
+          <div class="row mx-0 d-flex justify-content-center">
+            <div class="col-md-12 px-2 pt-2  px-sm-5 ">
+              <h2 class="h3 mb-3 mb-sm-3 text-center">Business hours</h2>
+            <!-- Monday Opening Hours-->
+            <div class="border-bottom pb-3 mb-3">
+              <div class="">
+
+                <div class="row">
+                  <div class="input-time justify-content-center align-items-center col-lg-6">
+                      <div class="pe-2 text-center">
+                          <label class="form-label fw-bold">Monday</label>
+                      </div>
+                      <div class="pe-2 text-center">
+                          <label class="form-label">Opening time</label>
+                      </div>
+                      <div id="timePicker"></div>
+                  </div>
+                  <div class="pt-2 input-time justify-content-center align-items-center col-lg-6">
+                      <div class="pe-2 text-center">
+                          <label class="form-label fw-bold"></label>
+                      </div>
+                      <div class="pe-2 text-center">
+                          <label class="form-label">Closing time</label>
+                      </div>
+                    <div id="timePicker1"></div>
+                  </div>
+                  
+                </div>
+                
+              </div>
+              
+            </div>
+            <!-- Tuesday Opening Hours-->
+            <div class="border-bottom pb-3 mb-3">
+              <div class="">
+
+                <div class="row">
+                  <div class="input-time justify-content-center align-items-center col-lg-6">
+                      <div class="pe-2 text-center">
+                          <label class="form-label fw-bold">Tuesday</label>
+                      </div>
+                      <div class="pe-2 text-center">
+                          <label class="form-label">Opening time</label>
+                      </div>
+                      <div id="timePicker2"></div>
+                  </div>
+                  <div class="pt-2 input-time justify-content-center align-items-center col-lg-6">
+                      <div class="pe-2 text-center">
+                          <label class="form-label fw-bold"></label>
+                      </div>
+                      <div class="pe-2 text-center">
+                          <label class="form-label">Closing time</label>
+                      </div>
+                    <div id="timePicker3"></div>
+                  </div>
+                  
+                </div>
+                
+              </div>
+              
+            </div>
+            <!-- Wednesday Opening Hours-->
+            <div class="border-bottom pb-3 mb-3">
+              <div class="">
+
+                <div class="row">
+                  <div class="input-time justify-content-center align-items-center col-lg-6">
+                      <div class="pe-2 text-center">
+                          <label class="form-label fw-bold">Wednesday</label>
+                      </div>
+                      <div class="pe-2 text-center">
+                          <label class="form-label">Opening time</label>
+                      </div>
+                      <div id="timePicker4"></div>
+                  </div>
+                  <div class="pt-2 input-time justify-content-center align-items-center col-lg-6">
+                      <div class="pe-2 text-center">
+                          <label class="form-label fw-bold"></label>
+                      </div>
+                      <div class="pe-2 text-center">
+                          <label class="form-label">Closing time</label>
+                      </div>
+                    <div id="timePicker5"></div>
+                  </div>
+                  
+                </div>
+                
+              </div>
+              
+            </div>
+            <!-- Thursday Opening Hours-->
+            <div class="border-bottom pb-3 mb-3">
+              <div class="">
+
+                <div class="row">
+                  <div class="input-time justify-content-center align-items-center col-lg-6">
+                      <div class="pe-2 text-center">
+                          <label class="form-label fw-bold">Thursday</label>
+                      </div>
+                      <div class="pe-2 text-center">
+                          <label class="form-label">Opening time</label>
+                      </div>
+                      <div id="timePicker6"></div>
+                  </div>
+                  <div class="pt-2 input-time justify-content-center align-items-center col-lg-6">
+                      <div class="pe-2 text-center">
+                          <label class="form-label fw-bold"></label>
+                      </div>
+                      <div class="pe-2 text-center">
+                          <label class="form-label">Closing time</label>
+                      </div>
+                    <div id="timePicker7"></div>
+                  </div>
+                  
+                </div>
+                
+              </div>
+              
+            </div>
+            <!-- Friday Opening Hours-->
+            <div class="border-bottom pb-3 mb-3">
+              <div class="">
+
+                <div class="row">
+                  <div class="input-time justify-content-center align-items-center col-lg-6">
+                      <div class="pe-2 text-center">
+                          <label class="form-label fw-bold">Friday</label>
+                      </div>
+                      <div class="pe-2 text-center">
+                          <label class="form-label">Opening time</label>
+                      </div>
+                      <div id="timePicker8"></div>
+                  </div>
+                  <div class="pt-2 input-time justify-content-center align-items-center col-lg-6">
+                      <div class="pe-2 text-center">
+                          <label class="form-label fw-bold"></label>
+                      </div>
+                      <div class="pe-2 text-center">
+                          <label class="form-label">Closing time</label>
+                      </div>
+                    <div id="timePicker9"></div>
+                  </div>
+                  
+                </div>
+                
+              </div>
+              
+            </div>
+            <!-- Saturday Opening Hours-->
+            <div class="border-bottom pb-3 mb-3">
+              <div class="">
+
+                <div class="row">
+                  <div class="input-time justify-content-center align-items-center col-lg-6">
+                      <div class="pe-2 text-center">
+                          <label class="form-label fw-bold">Saturday</label>
+                      </div>
+                      <div class="pe-2 text-center">
+                          <label class="form-label">Opening time</label>
+                      </div>
+                      <div id="timePicker10"></div>
+                  </div>
+                  <div class="pt-2 input-time justify-content-center align-items-center col-lg-6">
+                      <div class="pe-2 text-center">
+                          <label class="form-label fw-bold"></label>
+                      </div>
+                      <div class="pe-2 text-center">
+                          <label class="form-label">Closing time</label>
+                      </div>
+                    <div id="timePicker11"></div>
+                  </div>
+                  
+                </div>
+                
+              </div>
+              
+            </div>
+            <!-- Sunday Opening Hours-->
+            <div class="border-bottom pb-3 mb-3">
+              <div class="">
+
+                <div class="row">
+                  <div class="input-time justify-content-center align-items-center col-lg-6">
+                      <div class="pe-2 text-center">
+                          <label class="form-label fw-bold">Sunday</label>
+                      </div>
+                      <div class="pe-2 text-center">
+                          <label class="form-label">Opening time</label>
+                      </div>
+                      <div id="timePicker12"></div>
+                  </div>
+                  <div class="pt-2 input-time justify-content-center align-items-center col-lg-6">
+                      <div class="pe-2 text-center">
+                          <label class="form-label fw-bold"></label>
+                      </div>
+                      <div class="pe-2 text-center">
+                          <label class="form-label">Closing time</label>
+                      </div>
+                    <div id="timePicker13"></div>
+                  </div>
+                  
+                </div>
+                
+              </div>
+              
+            </div>
+            <!-- Action buttons -->
+            <section class="d-sm-flex justify-content-between pt-2"><a class="btn btn-outline-primary btn-lg d-block rounded-pill mb-3 mb-sm-2" href="sign-up-demo2.html" data-bs-toggle="modal"><i class="fi-eye-on ms-n1 me-2"></i>Back</a><a class="btn btn-primary btn-lg d-block rounded-pill mb-2" id="complete_button">Complete Sign up</a></section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Footer-->
+    <footer class="footer bg-dark text-light">
+        <div class="m-3 justify-content-between">
+        <div class="row gy-4 d-flex align-items-center">
+            <div class="col-lg-2">
+            <a class="d-inline-block" href="city-guide-home-v1.html"><img src="img/logo/logo-light.svg" width="116" alt="Logo"></a>
+            </div>
+            <div class="col-lg-2 text-center"><h3 class="fs-base text-light mb-0">Home</h3></div>
+            
+            <div class="col-lg-2 text-center">
+            <h3 class="fs-base text-light mb-0">Rewards</h3>
+            </div>
+            <div class="col-lg-2 text-center">
+            <h3 class="fs-base text-light mb-0">Contact</h3>
+            </div>
+            <!-- Subscription form-->
+            <div class="col-lg-4">
+            <form class="form-group form-group-light rounded-pill" style="max-width: 500px;">
+                <div class="input-group input-group-sm"><span class="input-group-text text-muted"><i class="fi-mail"></i></span>
+                <input class="form-control" type="email" placeholder="Your email">
+                </div>
+                <button class="btn btn-primary btn-sm rounded-pill" type="button">Subscribe</button>
+            </form>
+            </div>
+        </div>
+        </div>
+    </footer>
+    <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon fi-chevron-up">   </i></a>
+    <!-- Vendor scrits: js libraries and plugins-->
+    <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/simplebar/dist/simplebar.min.js"></script>
+    <script src="vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <!-- Main theme script-->
+    <script src="js/theme.min.js"></script>
+    <script src="jquery-time-picker.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#timePicker").timepicker({});
+        $("#timePicker1").timepicker({});
+        $("#timePicker2").timepicker({});
+        $("#timePicker3").timepicker({});
+        $("#timePicker4").timepicker({});
+        $("#timePicker5").timepicker({});
+        $("#timePicker6").timepicker({});
+        $("#timePicker7").timepicker({});
+        $("#timePicker8").timepicker({});
+        $("#timePicker9").timepicker({});
+        $("#timePicker10").timepicker({});
+        $("#timePicker11").timepicker({});
+        $("#timePicker12").timepicker({});
+        $("#timePicker13").timepicker({});
+        $("#timePicker14").timepicker({});
+        $("#timePicker15").timepicker({});
+        $("#timePicker16").timepicker({});
+      });
+  </script>
+  <script type="module">
+    //import { create } from "/vendor/filepond/dist/filepond.js";
+    import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-storage.js";
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
+      import { collection, doc,getDoc,getDocs,getFirestore,query,where,limit,setDoc,updateDoc, addDoc } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-firestore.js";
+      const firebaseConfig = {
+        apiKey: "AIzaSyDm6z01-F-JhvfhWZt0abyU5OchwyyYdMc",
+        authDomain: "maiinn.firebaseapp.com",
+        projectId: "maiinn",
+        storageBucket: "maiinn.appspot.com",
+        messagingSenderId: "72086465434",
+        appId: "1:72086465434:web:203eef22bd420f80816823",
+        measurementId: "G-JTL518XJMC"
+       };
+    var complete_button=document.getElementById("complete_button");
+    const urlParams = new URLSearchParams(window.location.search);
+    const email = urlParams.get('email');
+    complete_button.addEventListener("click",async()=>{
+        var monday_open=$("#timePicker").timepicker().getValue();
+        var monday_close=$("#timePicker1").timepicker().getValue();
+        var tuesday_open=$("#timePicker2").timepicker().getValue();
+        var tuesday_close=$("#timePicker3").timepicker().getValue();
+        var wednesday_open=$("#timePicker4").timepicker().getValue();
+        var wednesday_close=$("#timePicker5").timepicker().getValue();
+        var thursday_open=$("#timePicker6").timepicker().getValue();
+        var thursday_close=$("#timePicker7").timepicker().getValue();
+        var friday_open=$("#timePicker8").timepicker().getValue();
+        var friday_close=$("#timePicker9").timepicker().getValue();
+        var saturday_open=$("#timePicker10").timepicker().getValue();
+        var saturday_close=$("#timePicker11").timepicker().getValue();
+        var sunday_open=$("#timePicker12").timepicker().getValue();
+        var sunday_close=$("#timePicker13").timepicker().getValue();
+        const app = initializeApp(firebaseConfig);
+          const db=getFirestore(app);
+          const businessRef=collection(db,"business-list");
+          const docsSnap = await getDocs(businessRef);
+          const q = query(businessRef, where("email", "==", email),limit(1));
+          
+          try {
+            const querySnapshot = await getDocs(q);
+            if (!querySnapshot.empty) {
+              const docSnapshot = querySnapshot.docs[0];
+              // Access fields of the document using docSnapshot.data() method
+              const data = docSnapshot.data();
+              // Add a new field to the document data
+              const newData = { ...data,
+                monday_open: monday_open,
+                monday_close: monday_close,
+                tuesday_open: tuesday_open,
+                tuesday_close: tuesday_close,
+                wednesday_open: wednesday_open,
+                wednesday_close: wednesday_close,
+                thursday_open: thursday_open,
+                thursday_close: thursday_close,
+                friday_open: friday_open,
+                friday_close: friday_close,
+                saturday_open: saturday_open,
+                saturday_close: saturday_close,
+                sunday_open: sunday_open,
+                sunday_close: sunday_close,
+              };
+              console.log(newData);
+              // Add a new document in collection "cities"
+              await updateDoc(docSnapshot.ref, newData);
+              window.location.href = `business-admin.html?email=${email}`;
+            } else {
+              console.log("No matching documents.");
+            }
+          } catch (error) {
+            console.log("Error getting documents: ", error);
+          } 
+          console.log(data2);
+    });
+    
+  </script>
+  </body>
+</html>

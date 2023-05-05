@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Finder | City Guide | Add Business</title>
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="Finder - Directory &amp; Listings Bootstrap Template">
+    <meta name="keywords" content="bootstrap, business, directory, listings, e-commerce, car dealer, city guide, real estate, job board, user account, multipurpose, ui kit, html5, css3, javascript, gallery, slider, touch">
+    <meta name="author" content="Createx Studio">
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon and Touch Icons-->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" color="#5bbad5" href="safari-pinned-tab.svg">
+    <meta name="msapplication-TileColor" content="#766df4">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Page loading styles-->
+    <style>
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #666276;;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #bbb7c5;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      
+    </style>
+    <!-- Page loading scripts-->
+    <script>
+      (function () {
+        window.onload = function () {
+          var preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 2000);
+        };
+      })();
+      
+    </script>
+    <!-- Vendor Styles-->
+    <link rel="stylesheet" media="screen" href="vendor/simplebar/dist/simplebar.min.css"/>
+    <link rel="stylesheet" media="screen" href="vendor/leaflet/dist/leaflet.css"/>
+    <link rel="stylesheet" media="screen" href="vendor/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css"/>
+    <link rel="stylesheet" media="screen" href="vendor/filepond/dist/filepond.min.css"/>
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="css/theme.min.css">
+  </head>
+  <!-- Body-->
+  <body class="bg-secondary">
+    <!-- Page loading spinner-->
+    <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Loading...</span>
+      </div>
+    </div>
+    <main class="page-wrapper">
+
+
+      <!-- Page container-->
+      <div class="container mt-2 mb-md-4 py-3">
+        <div class="row">
+          <!-- Page content-->
+          <div class="col-lg-8 mx-auto">
+            
+            <!-- Title-->
+            <div class="mb-4">
+              <h1 class="h2 mb-0 text-center">Sign up</h1>
+              <div class="d-lg-none pt-3 mb-2">33% content filled</div>
+              <div class="progress d-lg-none mb-4" style="height: .25rem;">
+                <div class="progress-bar bg-warning" role="progressbar" style="width: 33%" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+            <!-- Basic info-->
+            <section class="card card-body border-0 shadow-sm p-4 mb-4" id="business-information">
+              <h2 class="h4 mb-4 text-center"><i class="fi-info-circle text-primary fs-5 mt-n1 me-2"></i>Business information</h2>
+              <div class="mb-3">
+                <label class="form-label" for="business_name">Business name</label>
+                <input class="form-control" type="text" id="business_name" value="Berlin Business Hotel" placeholder="Title for your business" required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Category</label>
+                <div class="btn-group d-block dropdown" data-bs-toggle="select">
+                  <button class="btn btn-outline-secondary col-md-12 col-12 d-flex align-items-center justify-content-between ps-3 fw-normal dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="dropdown-toggle-label" id="category_value" >Accommodation</span></button>
+                  <input type="hidden">
+                  <div class="dropdown-menu w-100 my-1 p-3">
+                    <div class="row row-cols-md-5 row-cols-sm-3 row-cols-2 g-2">
+                      <div class="col">
+                        <button class="dropdown-item btn btn-outline-secondary border-0 d-block p-3 text-center" type="button"><i class="fi-bed mb-1 fs-2 text-primary"></i><span class="dropdown-item-label d-block fs-sm">Accommodation</span></button>
+                      </div>
+                      <div class="col">
+                        <button class="dropdown-item btn btn-outline-secondary border-0 d-block p-3 text-center" type="button"><i class="fi-cafe mb-1 fs-2 text-primary"></i><span class="dropdown-item-label d-block fs-sm">Food &amp; Drink</span></button>
+                      </div>
+                      <div class="col">
+                        <button class="dropdown-item btn btn-outline-secondary border-0 d-block p-3 text-center" type="button"><i class="fi-shopping-bag mb-1 fs-2 text-primary"></i><span class="dropdown-item-label d-block fs-sm">Shopping</span></button>
+                      </div>
+                      <div class="col">
+                        <button class="dropdown-item btn btn-outline-secondary border-0 d-block p-3 text-center" type="button"><i class="fi-museum mb-1 fs-2 text-primary"></i><span class="dropdown-item-label d-block fs-sm">Art &amp; History</span></button>
+                      </div>
+                      <div class="col">
+                        <button class="dropdown-item btn btn-outline-secondary border-0 d-block p-3 text-center" type="button"><i class="fi-entertainment mb-1 fs-2 text-primary"></i><span class="dropdown-item-label d-block fs-sm">Entertainment</span></button>
+                      </div>
+                      <div class="col">
+                        <button class="dropdown-item btn btn-outline-secondary border-0 d-block p-3 text-center" type="button"><i class="fi-dumbell mb-1 fs-2 text-primary"></i><span class="dropdown-item-label d-block fs-sm">Fitness &amp; Sport</span></button>
+                      </div>
+                      <div class="col">
+                        <button class="dropdown-item btn btn-outline-secondary border-0 d-block p-3 text-center" type="button"><i class="fi-disco-ball mb-1 fs-2 text-primary"></i><span class="dropdown-item-label d-block fs-sm">Night Life</span></button>
+                      </div>
+                      <div class="col">
+                        <button class="dropdown-item btn btn-outline-secondary border-0 d-block p-3 text-center" type="button"><i class="fi-meds mb-1 fs-2 text-primary"></i><span class="dropdown-item-label d-block fs-sm">Medicine</span></button>
+                      </div>
+                      <div class="col">
+                        <button class="dropdown-item btn btn-outline-secondary border-0 d-block p-3 text-center" type="button"><i class="fi-makeup mb-1 fs-2 text-primary"></i><span class="dropdown-item-label d-block fs-sm">Beauty</span></button>
+                      </div>
+                      <div class="col">
+                        <button class="dropdown-item btn btn-outline-secondary border-0 d-block p-3 text-center" type="button"><i class="fi-car mb-1 fs-2 text-primary"></i><span class="dropdown-item-label d-block fs-sm">Car Rental</span></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-4">
+                <label class="form-label" for="phonenumber">Business Phone</label>
+                <input id="phone-value" class="form-control" for="phonenumber" name="someid" type="text" onkeypress="return isNumberKey(event)" value="(02) 9933 0600" placeholder="Enter your business phone" required/>
+              </div>
+            </section>
+            <!-- Location-->
+            <section class="card card-body border-0 shadow-sm p-4 mb-4" id="location">
+              <h2 class="h4 mb-4 text-center"><i class="fi-map-pin text-primary fs-5 mt-n1 me-2"></i>Location</h2>
+              <div class="mb-3">
+                <label class="form-label" for="ab-address">Business Address</label>
+                <input id="address-value" class="form-control" type="text" id="ab-address" value="" placeholder="Enter your business address" required>
+              </div>
+              
+              <div class="interactive-map rounded-3" data-map-options="{&quot;mapLayer&quot;: &quot;https://api.maptiler.com/maps/pastel/{z}/{x}/{y}.png?key=5vRQzd34MMsINEyeKPIs&quot;, &quot;coordinates&quot;: [52.52, 13.405], &quot;zoom&quot;: 13, &quot;scrollWheelZoom&quot;: false, &quot;markers&quot;: [{&quot;coordinates&quot;: [52.52, 13.405], &quot;className&quot;: &quot;custom-marker-dot&quot;, &quot;popup&quot;: &quot;&lt;div class='p-3'&gt;&lt;h6 class='fs-base'&gt;Berlin Business Hotel&lt;/h6&gt;&lt;p class='fs-xs text-muted pt-1 mt-n3 mb-0'&gt;Pasewalker Str. 97, Berlin&lt;/p&gt;&lt;/div&gt;&quot;}]}" style="height: 250px;"></div>
+            </section>
+           
+            <!-- Action buttons -->
+            <section class="d-sm-flex justify-content-between pt-2"><a class="btn btn-outline-primary btn-lg d-block rounded-pill mb-3 mb-sm-2" href="sign-up-demo1.html" data-bs-toggle="modal"><i class="fi-eye-on ms-n1 me-2"></i>Back</a><a id="save_continue_button" class="btn btn-primary btn-lg d-block rounded-pill mb-2">Save and continue</a></section>
+          </div>
+          
+        </div>
+      </div>
+    </main>
+<!-- Footer-->
+<footer class="footer bg-dark text-light">
+  <div class="m-3 justify-content-between">
+    <div class="row gy-4 d-flex align-items-center">
+      <div class="col-lg-2">
+        <a class="d-inline-block" href="city-guide-home-v1.html"><img src="img/logo/logo-light.svg" width="116" alt="Logo"></a>
+      </div>
+      <div class="col-lg-2 text-center"><h3 class="fs-base text-light mb-0">Home</h3></div>
+        
+      <div class="col-lg-2 text-center">
+        <h3 class="fs-base text-light mb-0">Rewards</h3>
+      </div>
+      <div class="col-lg-2 text-center">
+        <h3 class="fs-base text-light mb-0">Contact</h3>
+      </div>
+      <!-- Subscription form-->
+      <div class="col-lg-4">
+        <form class="form-group form-group-light rounded-pill" style="max-width: 500px;">
+          <div class="input-group input-group-sm"><span class="input-group-text text-muted"><i class="fi-mail"></i></span>
+            <input class="form-control" type="email" placeholder="Your email">
+          </div>
+          <button class="btn btn-primary btn-sm rounded-pill" type="button">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</footer>
+    <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon fi-chevron-up">   </i></a>
+    <!-- Vendor scrits: js libraries and plugins-->
+    <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/simplebar/dist/simplebar.min.js"></script>
+    <script src="vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="vendor/leaflet/dist/leaflet.js"></script>
+    <script src="vendor/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.min.js"></script>
+    <script src="vendor/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.min.js"></script>
+    <script src="vendor/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.js"></script>
+    <script src="vendor/filepond-plugin-image-crop/dist/filepond-plugin-image-crop.min.js"></script>
+    <script src="vendor/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.min.js"></script>
+    <script src="vendor/filepond-plugin-image-transform/dist/filepond-plugin-image-transform.min.js"></script>
+    <script src="vendor/filepond/dist/filepond.min.js"></script>
+    <script src="vendor/cleave.js/dist/cleave.min.js"></script>
+    <!-- Main theme script-->
+    <script src="js/theme.min.js"></script>
+    <script>
+      function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : evt.keyCode
+        console.log(charCode);
+        if(charCode==40||charCode==41||charCode==45||charCode==32) return true;
+        else if (charCode > 31 && (charCode < 48 || charCode > 57))
+          return false;
+        return true;
+      }
+    </script>
+    <script type="module">
+      //import { create } from "/vendor/filepond/dist/filepond.js";
+      import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-storage.js";
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
+      import { collection, doc,getDoc,getDocs,getFirestore,query,where,limit,setDoc,updateDoc, addDoc } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-firestore.js";
+      const firebaseConfig = {
+        apiKey: "AIzaSyDm6z01-F-JhvfhWZt0abyU5OchwyyYdMc",
+        authDomain: "maiinn.firebaseapp.com",
+        projectId: "maiinn",
+        storageBucket: "maiinn.appspot.com",
+        messagingSenderId: "72086465434",
+        appId: "1:72086465434:web:203eef22bd420f80816823",
+        measurementId: "G-JTL518XJMC"
+    };
+        var save_continue_button=document.getElementById("save_continue_button");
+        const urlParams = new URLSearchParams(window.location.search);
+        const email = urlParams.get('email');
+        save_continue_button.addEventListener("click", async()=>{
+          var business_name=document.getElementById("business_name").value;
+          var category_value=document.getElementById("category_value").innerHTML;
+          var phone_value=document.getElementById("phone-value").value;
+          var address_value=document.getElementById("address-value").value;
+          const data2 = {
+            business_name: business_name,
+            category_value: category_value,
+            phone_value: phone_value,
+            address_value: address_value,
+          };
+          const app = initializeApp(firebaseConfig);
+          const db=getFirestore(app);
+          const businessRef=collection(db,"business-list");
+          const docsSnap = await getDocs(businessRef);
+          const q = query(businessRef, where("email", "==", email),limit(1));
+          
+          try {
+            const querySnapshot = await getDocs(q);
+            if (!querySnapshot.empty) {
+              const docSnapshot = querySnapshot.docs[0];
+              // Access fields of the document using docSnapshot.data() method
+              const data = docSnapshot.data();
+              // Add a new field to the document data
+              const newData = { ...data,
+                business_name: business_name,
+                category_value: category_value,
+                phone_value: phone_value,
+                address_value: address_value,
+              };
+              console.log(newData);
+              // Add a new document in collection "cities"
+              await updateDoc(docSnapshot.ref, newData);
+              window.location.href = `sign-up-demo3.html?email=${email}`;
+            } else {
+              console.log("No matching documents.");
+            }
+          } catch (error) {
+            console.log("Error getting documents: ", error);
+          } 
+          console.log(data2);
+        });
+        
+    </script>
+  </body>
+</html>

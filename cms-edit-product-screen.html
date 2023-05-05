@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Finder | File uploader</title>
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="Finder - Directory &amp; Listings Bootstrap Template">
+    <meta name="keywords" content="bootstrap, business, directory, listings, e-commerce, car dealer, city guide, real estate, job board, user account, multipurpose, ui kit, html5, css3, javascript, gallery, slider, touch">
+    <meta name="author" content="Createx Studio">
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon and Touch Icons-->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" color="#5bbad5" href="safari-pinned-tab.svg">
+    <meta name="msapplication-TileColor" content="#766df4">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Vendor Styles-->
+    <link rel="stylesheet" media="screen" href="vendor/simplebar/dist/simplebar.min.css"/>
+    <link rel="stylesheet" media="screen" href="vendor/prismjs/themes/prism.css"/>
+    <link rel="stylesheet" media="screen" href="vendor/prismjs/plugins/toolbar/prism-toolbar.css"/>
+    <link rel="stylesheet" media="screen" href="vendor/prismjs/plugins/line-numbers/prism-line-numbers.css"/>
+    <link rel="stylesheet" media="screen" href="vendor/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css"/>
+    <link rel="stylesheet" media="screen" href="vendor/filepond/dist/filepond.min.css"/>
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="css/theme.min.css">
+  </head>
+  <!-- Body-->
+  <body>
+  <body class="bg-secondary">
+
+    <main class="page-wrapper">
+      <!-- Page content-->
+      <div class="container-fluid d-flex h-100 align-items-center justify-content-center py-4 py-sm-5">
+        <div class="card card-body" style="max-width: 940px">
+          <div class="row mx-0 d-flex justify-content-center">
+            <div class="col-md-10 px-2 pt-2 pb-4 px-sm-5 pb-sm-5 pt-md-2">
+              <h2 class="h3 mb-2 mb-sm-2 text-center">Update Product</h2>
+             
+              <form class="needs-validation" novalidate>
+                <div class="mb-4">
+                    <label class="form-label" for="product-name">Product Name</label>
+                    <input class="form-control" type="text" id="product-name" placeholder="Enter product name" value="Dyson Cinetic Big Ball Multi Floor Extra Barrel Vacuum" required>
+                 </div>
+               <!-- Format: Credit card CVC -->
+               <div class="mb-4">
+                <label class="form-label" for="format-card-cvc">Product Price</label>
+                <input class="form-control" type="text" id="format-card-cvc" data-format="cvc" value="50.43" placeholder="Enter product price">
+              </div>
+                <!-- Textarea -->
+                <div class="mb-3">
+                    <label for="product-description" class="form-label">Product Description</label>
+                    <textarea class="form-control" id="description" rows="5">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into  electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum</textarea>
+                </div>
+                <hr>
+                <label for="photos" class="form-label my-2">Photos</label>
+                <!-- Multiple file upload: Grid of files + File type, size and quantity validation (Gallery) -->
+                <input class="file-uploader file-uploader-grid" type="file" multiple data-max-files="4" data-max-file-size="2MB" accept="image/png, image/jpeg, video/mp4, video/mov" data-label-idle='<div class="btn btn-primary mb-3"><i class="fi-cloud-upload me-1"></i>Upload photos </div><div>or drag them in</div>'>
+                <button class="btn btn-primary btn-lg w-100 mt-3" type="submit">Update Product</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon fi-chevron-up">   </i></a>
+  <!-- Vendor scripts: js libraries and plugins-->
+  <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/simplebar/dist/simplebar.min.js"></script>
+  <script src="vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+  <script src="vendor/prismjs/components/prism-core.min.js"></script>
+  <script src="vendor/prismjs/components/prism-markup.min.js"></script>
+  <script src="vendor/prismjs/components/prism-clike.min.js"></script>
+  <script src="vendor/prismjs/components/prism-javascript.min.js"></script>
+  <script src="vendor/prismjs/components/prism-pug.min.js"></script>
+  <script src="vendor/prismjs/plugins/toolbar/prism-toolbar.min.js"></script>
+  <script src="vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+  <script src="vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js"></script>
+  <script src="vendor/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.min.js"></script>
+  <script src="vendor/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.min.js"></script>
+  <script src="vendor/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.js"></script>
+  <script src="vendor/filepond-plugin-image-crop/dist/filepond-plugin-image-crop.min.js"></script>
+  <script src="vendor/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.min.js"></script>
+  <script src="vendor/filepond-plugin-image-transform/dist/filepond-plugin-image-transform.min.js"></script>
+  
+  <script src="vendor/filepond/dist/filepond.min.js"></script>
+  <script src="vendor/nouislider/dist/nouislider.min.js"></script>
+  <script src="vendor/cleave.js/dist/cleave.min.js"></script>
+  <!-- Main theme script-->
+  <script src="js/theme.min.js"></script>
+
+</body>
+</html>

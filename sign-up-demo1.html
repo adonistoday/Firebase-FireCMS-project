@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Finder | Sign Up Page</title>
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="Finder - Directory &amp; Listings Bootstrap Template">
+    <meta name="keywords" content="bootstrap, business, directory, listings, e-commerce, car dealer, city guide, real estate, job board, user account, multipurpose, ui kit, html5, css3, javascript, gallery, slider, touch">
+    <meta name="author" content="Createx Studio">
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon and Touch Icons-->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" color="#5bbad5" href="safari-pinned-tab.svg">
+    <meta name="msapplication-TileColor" content="#766df4">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Page loading styles-->
+    <style>
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      #success-alert {
+        position: fixed !important;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        /* display: none; */
+        opacity: 0;
+        z-index: 9999;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #666276;;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #bbb7c5;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      
+    </style>
+    <!-- Page loading scripts-->
+    <script>
+      (function () {
+        window.onload = function () {
+          var preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 2000);
+        };
+      })();
+      
+    </script>
+    <!-- Vendor Styles-->
+    <link rel="stylesheet" media="screen" href="vendor/simplebar/dist/simplebar.min.css"/>
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="css/theme.min.css">
+  </head>
+  <!-- Body-->
+  <body class="bg-secondary">
+    <!-- Page loading spinner-->
+    <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Loading...</span>
+      </div>
+    </div>
+
+    <main class="page-wrapper">
+      <!-- Page content-->
+      <div class="container-fluid d-flex h-100 align-items-center justify-content-center py-4 py-sm-5">
+        <div class="card card-body" style="max-width: 940px"><a class="position-absolute top-0 end-0 nav-link fs-sm py-1 px-2 mt-3 me-3" href="#" onclick="window.history.go(-1); return false;"></a>
+          <div class="row mx-0 d-flex justify-content-center">
+            <div class="col-md-6 px-2 pt-2 pb-4 px-sm-5 pb-sm-5 pt-md-4">
+              <h2 class="h3 mb-1 mb-sm-1 text-center">Basic information</h2>
+              <div id="success-alert" class="alert alert-success mt-4 d-flex" role="alert">
+                <i class="fi-check-circle me-2 me-sm-3 lead"></i>
+                <div id="response_content"></div>
+              </div>
+              <div class="mt-sm-2 mb-2 pt-md-3 text-center">Already have an account? <a href="signin-light.html">Sign in</a></div>
+              <form class="needs-validation" id="signup-form" novalidate>
+                <div class="mb-4">
+                  <label class="form-label" for="signup-email">Email address</label>
+                  <input class="form-control" type="email" id="signup-email" placeholder="Enter your email" required>
+                </div>
+                <div class="mb-4">
+                  <label class="form-label" for="signup-password">Password </label>
+                  <div class="password-toggle">
+                    <input class="form-control" type="password" id="signup-password" minlength="8" placeholder="Enter password" required>
+                    <label class="password-toggle-btn" aria-label="Show/hide password">
+                      <input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator" placeholder="Enter password"></span>
+                    </label>
+                  </div>
+                </div>
+                <div class="mb-4">
+                  <label class="form-label" for="signup-password-confirm">Confirm password</label>
+                  <div class="password-toggle">
+                    <input class="form-control" type="password" id="signup-password-confirm" minlength="8" placeholder="Confirm password" required>
+                    <label class="password-toggle-btn" aria-label="Show/hide password">
+                      <input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator" placeholder="Confirm password"></span>
+                    </label>
+                  </div>
+                </div>
+                <hr>
+                <div class="mt-2 mb-4">
+                  <label class="form-label" for="signup-name">First Name</label>
+                  <input class="form-control" type="text" id="signup-name1" placeholder="Enter your first name" required>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label" for="signup-name">Last Name</label>
+                    <input class="form-control" type="text" id="signup-name2" placeholder="Enter your last name" required>
+                  </div>
+                <!-- <button class="btn btn-primary w-60" type="submit"> -->
+                  <a class="btn btn-primary d-block rounded-pill" id="continue-button"> Continue</a>
+                <!-- </button> -->
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon fi-chevron-up">   </i></a>
+    <!-- Vendor scrits: js libraries and plugins-->
+    <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/simplebar/dist/simplebar.min.js"></script>
+    <script src="vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <!-- Main theme script-->
+    <script src="js/theme.min.js"></script>
+    <script>
+      const continueButton = document.getElementById("continue-button");
+        continueButton.addEventListener("click", async () => {
+        // Get the values of the input fields
+        // var first_name=document.getElementById("name-value1").innerHTML;
+        var first_name=document.getElementById("signup-name1").value;
+        // var last_name=document.getElementById("name-value2").innerHTML;
+        var last_name=document.getElementById("signup-name2").value;
+        // var email=document.getElementById("email-value").innerHTML;
+        var email=document.getElementById("signup-email").value;
+        // var password=document.getElementById("password-value").innerHTML;
+        var password=document.getElementById("signup-password").value;
+        // var business_name=document.getElementById("business_name").innerHTML;
+        //var business_name_input=document.getElementById("business_name_input");
+        // var category_value=document.getElementById("category_value").innerHTML;
+        // var phone_value=document.getElementById("phone-value").innerHTML;
+        //var phone_value_input=document.getElementById("phone-value-input");
+        // var address_value=document.getElementById("address-value").innerHTML;
+        //var address_value_input=document.getElementById("address-value-input");
+        // var monday_open=$("#timePicker").timepicker().getValue();
+        // var monday_close=$("#timePicker1").timepicker().getValue();
+        // var tuesday_open=$("#timePicker2").timepicker().getValue();
+        // var tuesday_close=$("#timePicker3").timepicker().getValue();
+        // var wednesday_open=$("#timePicker4").timepicker().getValue();
+        // var wednesday_close=$("#timePicker5").timepicker().getValue();
+        // var thursday_open=$("#timePicker6").timepicker().getValue();
+        // var thursday_close=$("#timePicker7").timepicker().getValue();
+        // var friday_open=$("#timePicker8").timepicker().getValue();
+        // var friday_close=$("#timePicker9").timepicker().getValue();
+        // var saturday_open=$("#timePicker10").timepicker().getValue();
+        // var saturday_close=$("#timePicker11").timepicker().getValue();
+        // var sunday_open=$("#timePicker12").timepicker().getValue();
+        // var sunday_close=$("#timePicker13").timepicker().getValue();
+        
+        // Define the data you want to send to the server
+        
+        const data = {
+          firstName: first_name,
+          lastName: last_name,
+          email: email,
+          password: password,
+          // business_name: business_name,
+          // category_value: category_value,
+          // phone_value: phone_value,
+          // address_value: address_value,
+          // monday_open:monday_open,
+          // monday_close:monday_close,
+          // tuesday_open:tuesday_open,
+          // tuesday_close:tuesday_close,
+          // wednesday_open:wednesday_open,
+          // wednesday_close:wednesday_close,
+          // thursday_open:thursday_open,
+          // thursday_close:thursday_close,
+          // friday_open:friday_open,
+          // friday_close:friday_close,
+          // saturday_open:saturday_open,
+          // saturday_close:saturday_close,
+          // sunday_open:sunday_open,
+          // sunday_close:sunday_close,
+        };
+        console.log(data);
+        // Send a POST request to the server
+        const response = await fetch("https://us-central1-maiinn.cloudfunctions.net/app/signup1", 
+        {
+          method: "POST",
+          body: JSON.stringify(data),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })  
+        const jsonData = await response.json();
+        console.log(jsonData.msg);
+        displayAlert(jsonData.msg);
+        if(jsonData.msg.includes("created successfully")) window.location.href = `sign-up-demo2.html?email=${email}`;
+        
+       // alert(jsonData.msg);
+       
+      });
+      
+
+function displayAlert(str) {
+  var successAlert = document.getElementById("success-alert");
+  var response_content=document.getElementById("response_content");
+  successAlert.style.cssText = 'opacity:1';
+  response_content.innerHTML=str;
+  setTimeout(function(){
+    successAlert.style.cssText = 'opacity:0';
+  }, 2000); // 3000 milliseconds = 3 seconds
+}
+    </script>
+  </body>
+</html>

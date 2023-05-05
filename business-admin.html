@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Finder | City Guide | Account - Personal Info</title>
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="Finder - Directory &amp; Listings Bootstrap Template">
+    <meta name="keywords" content="bootstrap, business, directory, listings, e-commerce, car dealer, city guide, real estate, job board, user account, multipurpose, ui kit, html5, css3, javascript, gallery, slider, touch">
+    <meta name="author" content="Createx Studio">
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon and Touch Icons-->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" color="#5bbad5" href="safari-pinned-tab.svg">
+    <meta name="msapplication-TileColor" content="#766df4">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Page loading styles-->
+    <style>
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #666276;;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #bbb7c5;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      #success-alert {
+        position: fixed !important;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        /* display: none; */
+        opacity: 0;
+        z-index: 9999;
+      }
+
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      /* @media ( max-width: 768px) {
+        .col-3.btn.btn-primary.rounded-pill.px-3.px-sm-4{
+            
+        }
+      } */
+      
+      .vertical-center-price{
+        display: flex;
+        align-items: center;
+        min-height: 1vh; /* Adjust to desired height */
+      }
+		
+      
+    </style>
+    <!-- Page loading scripts-->
+    <script>
+      (function () {
+        window.onload = function () {
+          var preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 2000);
+        };
+      })();
+      
+    </script>
+    <!-- Vendor Styles-->
+    <link rel="stylesheet" media="screen" href="vendor/simplebar/dist/simplebar.min.css"/>
+    <link rel="stylesheet" media="screen" href="vendor/flatpickr/dist/flatpickr.min.css"/>
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="css/theme.min.css">
+ 
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+  </head>
+  <!-- Body-->
+  <body class="bg-secondary">
+    <!-- Page loading spinner-->
+    <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Loading...</span>
+      </div>
+    </div>
+    <main class="page-wrapper">
+
+      
+
+      <h2 class="m-5">Business Name</h2>
+      <div id="success-alert" class="alert alert-success mt-4 d-flex" role="alert">
+        <i class="fi-check-circle me-2 me-sm-3 lead"></i>
+        <div id="response_content"></div>
+      </div>
+      <!-- Page content-->
+      <!-- Page container-->
+      <div class="container mt-2 mb-md-4 py-2">
+        <!-- Page content-->
+        <div class="card card-body p-4 p-md-5 shadow-sm">
+          <div class="d-flex flex-md-row flex-column align-items-md-center justify-content-md-between mb-4 pt-2">
+            <h1 class="h3 mb-0">Basic Info</h1>
+          </div>
+          <div class="border rounded-3 p-3 mb-2" id="personal-info1">
+            <!--First Name-->
+            <div class="border-bottom pb-3 mb-3">
+              <div class="d-flex align-items-center justify-content-between">
+                <div class="pe-2">
+                  <label class="form-label fw-bold" >First Name</label>
+                  <div id="name-value1">Annette</div>
+                </div>
+                <div data-bs-toggle="tooltip" title="Edit"><a class="nav-link py-0" href="#name-collapse" data-bs-toggle="collapse"><i class="fi-edit"></i></a></div>
+              </div>
+              <div class="collapse" id="name-collapse" data-bs-parent="#personal-info">
+                <input class="form-control mt-3" type="text" data-bs-binded-element="#name-value1" data-bs-unset-value="Not specified" id="name-value1-input" value="Annette">
+              </div>
+            </div>
+            <!-- Last Name -->
+            <div class="border-bottom pb-3 mb-3">
+              <div class="d-flex align-items-center justify-content-between">
+                <div class="pe-2">
+                  <label class="form-label fw-bold">Last Name</label>
+                  <div id="name-value2">Black</div>
+                </div>
+                <div data-bs-toggle="tooltip" title="Edit"><a class="nav-link py-0" href="#lastname-collapse" data-bs-toggle="collapse"><i class="fi-edit"></i></a></div>
+              </div>
+              <div class="collapse" id="lastname-collapse" data-bs-parent="#personal-info">
+                <input class="form-control mt-3" type="text" data-bs-binded-element="#name-value2" data-bs-unset-value="Not specified" id="name-value2-input" value="Black">
+              </div>
+            </div>
+            <!-- Email-->
+            <div class="border-bottom pb-3 mb-3">
+              <div class="d-flex align-items-center justify-content-between">
+                <div class="pe-2">
+                  <label class="form-label fw-bold">Email</label>
+                  <div id="email-value">annette_black@email.com</div>
+                </div>
+                <div data-bs-toggle="tooltip" title="Edit"><a class="nav-link py-0" href="#email-collapse" data-bs-toggle="collapse"><i class="fi-edit"></i></a></div>
+              </div>
+              <div class="collapse" id="email-collapse" data-bs-parent="#personal-info">
+                <input class="form-control mt-3" type="email" data-bs-binded-element="#email-value" data-bs-unset-value="Not specified" id="email-value-input" value="annette_black@email.com">
+              </div>
+            </div>
+            
+            <div>
+              <div class="d-flex align-items-center justify-content-between">
+                <div class="pe-2">
+                  <label class="form-label fw-bold">Password</label>
+                  <div id="password-value">********</div>
+                </div>
+                <div data-bs-toggle="tooltip" title="Edit"><a class="nav-link py-0" href="#company-collapse" data-bs-toggle="collapse"><i class="fi-edit"></i></a></div>
+              </div>
+              <div class="collapse" id="company-collapse" data-bs-parent="#personal-info">
+                <div class="password-toggle mt-3">
+                  <input class="form-control" type="password" value="hidden@password" id="password-value-input" data-bs-binded-element="#password-value">
+                  <label class="password-toggle-btn" aria-label="Show/hide password">
+                    <input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex flex-md-row flex-column align-items-md-center justify-content-md-between mb-4 pt-2">
+            <h1 class="h3 mb-0">Business Info</h1>
+          </div>
+          <div class="border rounded-3 p-3 mb-2" id="business-info1">
+            <!--Business Name-->
+            <div class="border-bottom pb-3 mb-3">
+              <div class="d-flex align-items-center justify-content-between">
+                <div class="pe-2">
+                  <label class="form-label fw-bold">Business Name</label>
+                  <div id="business_name">Woolworths Parramatta
+                  </div>
+                </div>
+                <div data-bs-toggle="tooltip" title="Edit"><a class="nav-link py-0" href="#name-collapse" data-bs-toggle="collapse"><i class="fi-edit"></i></a></div>
+              </div>
+              <div class="collapse" id="name-collapse" data-bs-parent="#personal-info">
+                <input class="form-control mt-3" type="text" data-bs-binded-element="#business_name" data-bs-unset-value="Not specified" id="business_name_input" value="Business name goes here">
+              </div>
+            </div>
+            <!-- Business Category-->
+            <div class="border-bottom pb-3 mb-3">
+              <div class="d-flex align-items-center justify-content-between">
+                <div class="pe-2">
+                  <label class="form-label fw-bold">Business Category</label>
+                  <div id="category_value">Not specified</div>
+                </div>
+                <div data-bs-toggle="tooltip" title="Edit"><a class="nav-link py-0" href="#gender-collapse" data-bs-toggle="collapse"><i class="fi-edit"></i></a></div>
+              </div>
+              <div class="collapse" id="gender-collapse" data-bs-parent="#personal-info">
+                <select class="form-select mt-3" data-bs-binded-element="#category_value" data-bs-unset-value="Not specified">
+                  <!-- <option value="Not specified" disabled selected>Choose Business Category</option> -->
+                  <option value="Accommodation">Accommodation</option>
+                  <option value="Food">Food</option>
+                  <option value="Shopping">Shopping</option>
+                  <option value="Art &amp; History">Art &amp; History</option>
+                  <option value="Entertainment">Entertainment</option>
+                  <option value="Medicine">Medicine</option>
+                  <option value="Beauty">Beauty</option>
+                  <option value="Car Rental">Car Rental</option>
+                </select>
+              </div>
+            </div>
+            <!-- Phone number-->
+            <div class="border-bottom pb-3 mb-3">
+              <div class="d-flex align-items-center justify-content-between">
+                <div class="pe-2">
+                  <label class="form-label fw-bold">Phone number</label>
+                  <div id="phone-value">(02) 8633 2907</div>
+                </div>
+                <div data-bs-toggle="tooltip" title="Edit"><a class="nav-link py-0" href="#phone-collapse" data-bs-toggle="collapse"><i class="fi-edit"></i></a></div>
+              </div>
+              <div class="collapse" id="phone-collapse" data-bs-parent="#business-info">
+                <input class="form-control mt-3" type="text" data-bs-binded-element="#phone-value" data-bs-unset-value="Not specified" id="phone-value-input" onkeypress="return isNumberKey(event)" value="(302) 555-0107">
+              </div>
+            </div>
+            <!-- Address-->
+            <div class="border-bottom pb-3 mb-3">
+              <div class="d-flex align-items-center justify-content-between">
+                <div class="pe-2">
+                  <label class="form-label fw-bold">Address</label>
+                  <div id="address-value">1156/159-175 Church St, Parramatta NSW 2150
+                  </div>
+                </div>
+                <div data-bs-toggle="tooltip" title="Edit"><a class="nav-link py-0" href="#address-collapse" data-bs-toggle="collapse"><i class="fi-edit"></i></a></div>
+              </div>
+              <div class="collapse" id="address-collapse" data-bs-parent="#business-info">
+                <input class="form-control mt-3" type="text" data-bs-binded-element="#address-value" data-bs-unset-value="Not specified" id="address-value-input" placeholder="Enter address">
+              </div>
+            </div>
+            <div class="border-bottom pb-3 mb-3" style="height: 500px;" id="address-map">
+              <!-- <iframe src="http://maps.google.com/maps?q=12.927923,77.627108&z=15&output=embed"></iframe> -->
+            </div>
+            <div class="w-75 mx-auto">
+               <!-- Monday Opening Hours-->
+          <div class="border-bottom pb-3 mb-3">
+            <div class="">
+
+              <div class="row">
+                <div class="input-time justify-content-center align-items-center col-lg-6">
+                    <div class="pe-2 text-center">
+                        <label class="form-label fw-bold">Monday</label>
+                    </div>
+                    <div class="pe-2 text-center">
+                        <label class="form-label">Opening time</label>
+                    </div>
+                    <div id="timePicker"></div>
+                </div>
+                <div class="pt-2 input-time justify-content-center align-items-center col-lg-6">
+                    <div class="pe-2 text-center">
+                        <label class="form-label fw-bold"></label>
+                    </div>
+                    <div class="pe-2 text-center">
+                        <label class="form-label">Closing time</label>
+                    </div>
+                  <div id="timePicker1"></div>
+                </div>
+                
+              </div>
+              
+            </div>
+            
+          </div>
+          <!-- Tuesday Opening Hours-->
+          <div class="border-bottom pb-3 mb-3">
+            <div class="">
+
+              <div class="row">
+                <div class="input-time justify-content-center align-items-center col-lg-6">
+                    <div class="pe-2 text-center">
+                        <label class="form-label fw-bold">Tuesday</label>
+                    </div>
+                    <div class="pe-2 text-center">
+                        <label class="form-label">Opening time</label>
+                    </div>
+                    <div id="timePicker2"></div>
+                </div>
+                <div class="pt-2 input-time justify-content-center align-items-center col-lg-6">
+                    <div class="pe-2 text-center">
+                        <label class="form-label fw-bold"></label>
+                    </div>
+                    <div class="pe-2 text-center">
+                        <label class="form-label">Closing time</label>
+                    </div>
+                  <div id="timePicker3"></div>
+                </div>
+                
+              </div>
+              
+            </div>
+            
+          </div>
+          <!-- Wednesday Opening Hours-->
+          <div class="border-bottom pb-3 mb-3">
+            <div class="">
+
+              <div class="row">
+                <div class="input-time justify-content-center align-items-center col-lg-6">
+                    <div class="pe-2 text-center">
+                        <label class="form-label fw-bold">Wednesday</label>
+                    </div>
+                    <div class="pe-2 text-center">
+                        <label class="form-label">Opening time</label>
+                    </div>
+                    <div id="timePicker4"></div>
+                </div>
+                <div class="pt-2 input-time justify-content-center align-items-center col-lg-6">
+                    <div class="pe-2 text-center">
+                        <label class="form-label fw-bold"></label>
+                    </div>
+                    <div class="pe-2 text-center">
+                        <label class="form-label">Closing time</label>
+                    </div>
+                  <div id="timePicker5"></div>
+                </div>
+                
+              </div>
+              
+            </div>
+            
+          </div>
+          <!-- Thursday Opening Hours-->
+          <div class="border-bottom pb-3 mb-3">
+            <div class="">
+
+              <div class="row">
+                <div class="input-time justify-content-center align-items-center col-lg-6">
+                    <div class="pe-2 text-center">
+                        <label class="form-label fw-bold">Thursday</label>
+                    </div>
+                    <div class="pe-2 text-center">
+                        <label class="form-label">Opening time</label>
+                    </div>
+                    <div id="timePicker6"></div>
+                </div>
+                <div class="pt-2 input-time justify-content-center align-items-center col-lg-6">
+                    <div class="pe-2 text-center">
+                        <label class="form-label fw-bold"></label>
+                    </div>
+                    <div class="pe-2 text-center">
+                        <label class="form-label">Closing time</label>
+                    </div>
+                  <div id="timePicker7"></div>
+                </div>
+                
+              </div>
+              
+            </div>
+            
+          </div>
+          <!-- Friday Opening Hours-->
+          <div class="border-bottom pb-3 mb-3">
+            <div class="">
+
+              <div class="row">
+                <div class="input-time justify-content-center align-items-center col-lg-6">
+                    <div class="pe-2 text-center">
+                        <label class="form-label fw-bold">Friday</label>
+                    </div>
+                    <div class="pe-2 text-center">
+                        <label class="form-label">Opening time</label>
+                    </div>
+                    <div id="timePicker8"></div>
+                </div>
+                <div class="pt-2 input-time justify-content-center align-items-center col-lg-6">
+                    <div class="pe-2 text-center">
+                        <label class="form-label fw-bold"></label>
+                    </div>
+                    <div class="pe-2 text-center">
+                        <label class="form-label">Closing time</label>
+                    </div>
+                  <div id="timePicker9"></div>
+                </div>
+                
+              </div>
+              
+            </div>
+            
+          </div>
+          <!-- Saturday Opening Hours-->
+          <div class="border-bottom pb-3 mb-3">
+            <div class="">
+
+              <div class="row">
+                <div class="input-time justify-content-center align-items-center col-lg-6">
+                    <div class="pe-2 text-center">
+                        <label class="form-label fw-bold">Saturday</label>
+                    </div>
+                    <div class="pe-2 text-center">
+                        <label class="form-label">Opening time</label>
+                    </div>
+                    <div id="timePicker10"></div>
+                </div>
+                <div class="pt-2 input-time justify-content-center align-items-center col-lg-6">
+                    <div class="pe-2 text-center">
+                        <label class="form-label fw-bold"></label>
+                    </div>
+                    <div class="pe-2 text-center">
+                        <label class="form-label">Closing time</label>
+                    </div>
+                  <div id="timePicker11"></div>
+                </div>
+                
+              </div>
+              
+            </div>
+            
+          </div>
+          <!-- Sunday Opening Hours-->
+          <div class="border-bottom pb-3 mb-3">
+            <div class="">
+
+              <div class="row">
+                <div class="input-time justify-content-center align-items-center col-lg-6">
+                    <div class="pe-2 text-center">
+                        <label class="form-label fw-bold">Sunday</label>
+                    </div>
+                    <div class="pe-2 text-center">
+                        <label class="form-label">Opening time</label>
+                    </div>
+                    <div id="timePicker12"></div>
+                </div>
+                <div class="pt-2 input-time justify-content-center align-items-center col-lg-6">
+                    <div class="pe-2 text-center">
+                        <label class="form-label fw-bold"></label>
+                    </div>
+                    <div class="pe-2 text-center">
+                        <label class="form-label">Closing time</label>
+                    </div>
+                  <div id="timePicker13"></div>
+                </div>
+                
+              </div>
+              
+            </div>
+            
+          </div>
+            </div>
+         
+            
+          </div>
+          <div class="d-flex align-items-center justify-content-between mt-4 text-center row">
+            <div class="col-4"></div>
+            <button class="col-lg-3 col-sm-1 btn btn-primary rounded-pill px-3 px-sm-4" type="button" id="saveChangesButton">Save changes</button>
+            <div class="col-4"></div>
+            <!-- <button class="btn btn-link btn-sm px-0" type="button"><i class="fi-trash me-2"></i>Delete account</button> -->
+          </div>
+          <div class="border rounded-3 p-3 mb-2 mt-3" id="business-products">
+              <!-- Left column-->
+            <div class="col-md-12 mb-md-0 mb-4 pb-md-0 pb-2" id="reviews">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="h4">3 Product's</div>
+                <button class="btn btn-info mb-3" id="addProduct_button">Add Product</button>
+              </div>
+
+          </div>
+        </div>
+      </div>
+    </main>
+  <!-- Footer-->
+
+  <footer class="footer bg-dark text-light">
+    <div class="m-3 justify-content-between">
+      <div class="row gy-4 d-flex align-items-center">
+        <div class="col-lg-2 text-center">
+          <a class="d-inline-block" href="home.html"><img src="img/logo/Logo White.png" width="100" alt="Logo"></a>
+        </div>
+        <div class="col-lg-2 text-center">
+          <h3 class="fs-base text-light mb-0">Home</h3>
+        </div>
+
+        <div class="col-lg-2 text-center">
+          <h3 class="fs-base text-light mb-0">Rewards</h3>
+        </div>
+        <div class="col-lg-2 text-center">
+          <h3 class="fs-base text-light mb-0">Contact</h3>
+        </div>
+        <!-- Subscription form-->
+        <div class="col-lg-4">
+          <form class="form-group form-group-light rounded-pill" style="max-width: 500px;">
+            <div class="input-group input-group-sm"><span class="input-group-text text-muted"><i
+                  class="fi-mail"></i></span>
+              <input class="form-control" type="email" placeholder="Your email">
+            </div>
+            <button class="btn btn-primary btn-sm rounded-pill" type="button">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </footer>
+    <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon fi-chevron-up">   </i></a>
+    <!-- Vendor scrits: js libraries and plugins-->
+    <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/simplebar/dist/simplebar.min.js"></script>
+    <script src="vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="vendor/flatpickr/dist/flatpickr.min.js"></script>
+    <!-- Main theme script-->
+    <script src="js/theme.min.js"></script>
+    <script src="jquery-time-picker.js"></script>
+    <script>
+      // $(document).ready(function () {
+        // var success_alert=getElementById("success-alert");
+        // success_alert.style.cssText='display:none !important';
+      //   $("#timePicker").timepicker({});
+      //   $("#timePicker1").timepicker({});
+      //   $("#timePicker2").timepicker({});
+      //   $("#timePicker3").timepicker({});
+      //   $("#timePicker4").timepicker({});
+      //   $("#timePicker5").timepicker({});
+      //   $("#timePicker6").timepicker({});
+      //   $("#timePicker7").timepicker({});
+      //   $("#timePicker8").timepicker({});
+      //   $("#timePicker9").timepicker({});
+      //   $("#timePicker10").timepicker({});
+      //   $("#timePicker11").timepicker({});
+      //   $("#timePicker12").timepicker({});
+      //   $("#timePicker13").timepicker({});
+      //   $("#timePicker14").timepicker({});
+      //   $("#timePicker15").timepicker({});
+      //   $("#timePicker16").timepicker({});
+          
+      // });
+  </script>
+  <script type="text/javascript">
+
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-36251023-1']);
+_gaq.push(['_setDomainName', 'jqueryscript.net']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+</script>
+<script>
+try {
+fetch(new Request("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", { method: 'HEAD', mode: 'no-cors' })).then(function(response) {
+  return true;
+}).catch(function(e) {
+  var carbonScript = document.createElement("script");
+  carbonScript.src = "//cdn.carbonads.com/carbon.js?serve=CK7DKKQU&placement=wwwjqueryscriptnet";
+  carbonScript.id = "_carbonads_js";
+  document.getElementById("carbon-block").appendChild(carbonScript);
+});
+} catch (error) {
+console.log(error);
+}
+</script>
+<script type="text/javascript"><!--
+  google_ad_client = "ca-pub-2783044520727903";
+  /* jQuery_demo */
+  google_ad_slot = "2780937993";
+  google_ad_width = 728;
+  google_ad_height = 90;
+  //-->
+  </script>
+  <script type="text/javascript"
+  src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+  </script>
+  <script>
+    function isNumberKey(evt) {
+      var charCode = (evt.which) ? evt.which : evt.keyCode
+      console.log(charCode);
+      if(charCode==40||charCode==41||charCode==45||charCode==32) return true;
+      else if (charCode > 31 && (charCode < 48 || charCode > 57))
+        return false;
+      return true;
+    }
+  </script>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-analytics.js";
+      import { getFirestore } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-firestore.js";
+      import { collection, doc, setDoc,getDocs, query, where} from "https://www.gstatic.com/firebasejs/9.20.0/firebase-firestore.js"; 
+      import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-storage.js";
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyDm6z01-F-JhvfhWZt0abyU5OchwyyYdMc",
+        authDomain: "maiinn.firebaseapp.com",
+        projectId: "maiinn",
+        storageBucket: "maiinn.appspot.com",
+        messagingSenderId: "72086465434",
+        appId: "1:72086465434:web:203eef22bd420f80816823",
+        measurementId: "G-JTL518XJMC"
+      };
+      const urlParams = new URLSearchParams(window.location.search);
+      const signed_email = urlParams.get('email');
+      console.log(signed_email);
+      //Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+
+      const db=getFirestore(app);
+      
+      const businessRef=collection(db,"business-list");
+      const docsSnap = await getDocs(businessRef);
+      docsSnap.forEach(doc => {
+         
+         if(doc.data().email==signed_email)
+         {
+            console.log(doc.data());
+            var first_name=document.getElementById("name-value1");
+            var first_name_input=document.getElementById("name-value1-input");
+            var last_name=document.getElementById("name-value2");
+            var last_name_input=document.getElementById("name-value2-input");
+            var email=document.getElementById("email-value");
+            var email_input=document.getElementById("email-value-input");
+            var password=document.getElementById("password-value");
+            var password_input=document.getElementById("password-value-input");
+
+            first_name.innerHTML=doc.data().first_name;
+            first_name_input.value=doc.data().first_name;
+            last_name.innerHTML=doc.data().last_name;
+            last_name_input.value=doc.data().last_name;
+            email.innerHTML=doc.data().email;
+            email_input.value=doc.data().email;
+            password.innerHTML=doc.data().password;
+            password_input.value=doc.data().password;
+
+            var business_name=document.getElementById("business_name");
+            var business_name_input=document.getElementById("business_name_input");
+            business_name.innerHTML=doc.data().business_name;
+            business_name_input.value=doc.data().business_name;
+            var category_value=document.getElementById("category_value");
+            category_value.innerHTML=doc.data().category_value;
+            var phone_value=document.getElementById("phone-value");
+            var phone_value_input=document.getElementById("phone-value-input");
+            phone_value.innerHTML=doc.data().business_phone;
+            phone_value_input.value=doc.data().business_phone;
+             var address_value=document.getElementById("address-value");
+             var address_value_input=document.getElementById("address-value-input");
+             address_value.innerHTML=doc.data().address_value;
+             address_value_input.value=doc.data().address_value;
+
+             // Create a new Geocoder object
+            var geocoder = new google.maps.Geocoder();
+            // Address to search for
+            var address = doc.data().address_value;
+
+            var mapElement = document.getElementById("address-map");
+
+            // Create a new Map object, passing in the map element
+            var map = new google.maps.Map(mapElement, {
+              center: { lat: 37.7749, lng: -122.4194 }, // Default map center
+              zoom: 16 // Default zoom level
+            });
+
+            // Call the geocode method with the address
+            geocoder.geocode({ address: address }, function (results, status) {
+              if (status == "OK") {
+                // Get the latitude and longitude of the first result
+                var location = results[0].geometry.location;
+                var lat = location.lat();
+                var lng = location.lng();
+
+                // Create a new Marker object, passing in the latitude and longitude
+                var marker = new google.maps.Marker({
+                  position: { lat: lat, lng: lng },
+                  map: map,
+                  title:doc.data().business_name
+                });
+
+                // Center the map on the marker
+                map.setCenter(marker.getPosition());
+              } else {
+                console.log("Geocode was not successful for the following reason: " + status);
+              }
+            });
+            //display business hours
+            $("#timePicker").timepicker({ value: doc.data().monday_open, disabled: false });
+            $("#timePicker1").timepicker({ value: doc.data().monday_close, disabled: false });
+            $("#timePicker2").timepicker({ value: doc.data().tuesday_open, disabled: false });
+            $("#timePicker3").timepicker({ value: doc.data().tuesday_close, disabled: false });
+            $("#timePicker4").timepicker({ value: doc.data().wednesday_open, disabled: false });
+            $("#timePicker5").timepicker({ value: doc.data().wednesday_close, disabled: false });
+            $("#timePicker6").timepicker({ value: doc.data().thursday_open, disabled: false });
+            $("#timePicker7").timepicker({ value: doc.data().thursday_close, disabled: false });
+            $("#timePicker8").timepicker({ value: doc.data().friday_open, disabled: false });
+            $("#timePicker9").timepicker({ value: doc.data().friday_close, disabled: false });
+            $("#timePicker10").timepicker({ value: doc.data().saturday_open, disabled: false });
+            $("#timePicker11").timepicker({ value: doc.data().saturday_close, disabled: false });
+            $("#timePicker12").timepicker({ value: doc.data().sunday_open, disabled: false });
+            $("#timePicker13").timepicker({ value: doc.data().sunday_close, disabled: false });
+         }
+
+      });
+      const productRef=collection(db,"product-list");
+      const q = query(productRef, where("email", "==", signed_email));
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach(doc=>{
+        console.log(doc.data());
+// Get the parent element
+const parent = document.getElementById("reviews");
+
+// Create the div element for review
+const reviewDiv = document.createElement("div");
+reviewDiv.className = "row mb-1 border rounded-1";
+
+// Create the div element for image column
+const imageDiv = document.createElement("div");
+imageDiv.className = "col-md-2 p-0 mr-5";
+reviewDiv.appendChild(imageDiv);
+
+const storage = getStorage();
+getDownloadURL(ref(storage, doc.data().image))
+  .then((url) => {
+    // `url` is the download URL for 'images/stars.jpg'
+    console.log(url);
+    // Create the img element for product image
+const productImage = document.createElement("img");
+productImage.className = "me-1 w-100 bsr-photo";
+productImage.src = url;
+productImage.alt = "Avatar";
+imageDiv.appendChild(productImage);
+  })
+  .catch((error) => {
+    // Handle any errors
+  });
+
+
+
+// Create the div element for content column
+const contentDiv = document.createElement("div");
+contentDiv.className = "col-md-6";
+contentDiv.setAttribute("data-id", doc.data().productName);
+reviewDiv.appendChild(contentDiv);
+
+// Create the div element for review title
+const titleDiv = document.createElement("div");
+titleDiv.className = "d-flex justify-content-between mb-1";
+contentDiv.appendChild(titleDiv);
+
+// Create the div element for title content
+const titleContentDiv = document.createElement("div");
+titleContentDiv.className = "d-flex align-items-center pe-6";
+titleDiv.appendChild(titleContentDiv);
+
+// Create the h6 element for product title
+const productTitle = document.createElement("h6");
+productTitle.className = "fs-base mb-0";
+productTitle.textContent = doc.data().productName;
+titleContentDiv.appendChild(productTitle);
+
+// Create the p element for review content
+const reviewContent = document.createElement("p");
+reviewContent.className = "mb-1";
+reviewContent.textContent = doc.data().productDescription;
+contentDiv.appendChild(reviewContent);
+
+// Create the div element for price column
+const priceDiv = document.createElement("div");
+priceDiv.className = "col-md-1 text-center vertical-center-price";
+reviewDiv.appendChild(priceDiv);
+
+// Create the label element for product price
+const productPrice = document.createElement("label");
+productPrice.className = "h5";
+productPrice.textContent = "$"+doc.data().productPrice;
+priceDiv.appendChild(productPrice);
+
+// Create the div element for action column
+const actionDiv = document.createElement("div");
+actionDiv.className = "col-md-3 d-flex align-items-center";
+reviewDiv.appendChild(actionDiv);
+
+// Create the div element for action buttons row
+const actionButtonsDiv = document.createElement("div");
+actionButtonsDiv.className = "row";
+actionDiv.appendChild(actionButtonsDiv);
+
+// Create the div element for action buttons row
+const editDiv = document.createElement("div");
+editDiv.className = "col-6";
+actionButtonsDiv.appendChild(editDiv);
+
+// Create the button element for edit action
+const editButton = document.createElement("button");
+editButton.type = "button";
+editButton.className = "btn btn-success";
+editButton.textContent = "Edit";
+editDiv.appendChild(editButton);
+editButton.addEventListener("click", ()=>{
+  console.log(doc.data().productDescription);
+  window.location.href=`modify-product-screen.html?productName=${doc.data().productName}&productPrice=${doc.data().productPrice}&productDescription=${doc.data().productDescription}`;
+
+});
+
+// Create the div element for action buttons row
+const deleteDiv = document.createElement("div");
+deleteDiv.className = "col-6";
+actionButtonsDiv.appendChild(deleteDiv);
+
+// Create the button element for delete action
+const deleteButton = document.createElement("button");
+deleteButton.addEventListener("click", ()=>{
+  console.log(contentDiv.dataset.id);
+});
+deleteButton.type = "button";
+deleteButton.className = "btn btn-danger";
+deleteButton.textContent = "Delete";
+deleteDiv.appendChild(deleteButton);
+
+// Add the review div to the parent element
+parent.appendChild(reviewDiv);
+
+      });
+
+      var addProduct_button=document.getElementById("addProduct_button");
+      addProduct_button.addEventListener("click", ()=>
+      {
+        var email=document.getElementById("email-value-input").value;
+        window.location.href=`add-product.html?email=${email}`;
+      })
+      const saveChangesButton = document.getElementById("saveChangesButton");
+
+      saveChangesButton.addEventListener("click", async () => {
+        // Get the values of the input fields
+        var first_name=document.getElementById("name-value1").innerHTML;
+        //var first_name_input=document.getElementById("name-value1-input");
+        var last_name=document.getElementById("name-value2").innerHTML;
+        //var last_name_input=document.getElementById("name-value2-input");
+        var email=document.getElementById("email-value").innerHTML;
+        //var email_input=document.getElementById("email-value-input");
+        var password=document.getElementById("password-value").innerHTML;
+        //var password_input=document.getElementById("password-value-input");
+        var business_name=document.getElementById("business_name").innerHTML;
+        //var business_name_input=document.getElementById("business_name_input");
+        var category_value=document.getElementById("category_value").innerHTML;
+        var phone_value=document.getElementById("phone-value").innerHTML;
+        //var phone_value_input=document.getElementById("phone-value-input");
+        var address_value=document.getElementById("address-value").innerHTML;
+        //var address_value_input=document.getElementById("address-value-input");
+        var monday_open=$("#timePicker").timepicker().getValue();
+        var monday_close=$("#timePicker1").timepicker().getValue();
+        var tuesday_open=$("#timePicker2").timepicker().getValue();
+        var tuesday_close=$("#timePicker3").timepicker().getValue();
+        var wednesday_open=$("#timePicker4").timepicker().getValue();
+        var wednesday_close=$("#timePicker5").timepicker().getValue();
+        var thursday_open=$("#timePicker6").timepicker().getValue();
+        var thursday_close=$("#timePicker7").timepicker().getValue();
+        var friday_open=$("#timePicker8").timepicker().getValue();
+        var friday_close=$("#timePicker9").timepicker().getValue();
+        var saturday_open=$("#timePicker10").timepicker().getValue();
+        var saturday_close=$("#timePicker11").timepicker().getValue();
+        var sunday_open=$("#timePicker12").timepicker().getValue();
+        var sunday_close=$("#timePicker13").timepicker().getValue();
+        
+        // Define the data you want to send to the server
+        
+        const data = {
+          first_name: first_name,
+          last_name: last_name,
+          email: email,
+          password: password,
+          business_name: business_name,
+          category_value: category_value,
+          phone_value: phone_value,
+          address_value: address_value,
+          monday_open:monday_open,
+          monday_close:monday_close,
+          tuesday_open:tuesday_open,
+          tuesday_close:tuesday_close,
+          wednesday_open:wednesday_open,
+          wednesday_close:wednesday_close,
+          thursday_open:thursday_open,
+          thursday_close:thursday_close,
+          friday_open:friday_open,
+          friday_close:friday_close,
+          saturday_open:saturday_open,
+          saturday_close:saturday_close,
+          sunday_open:sunday_open,
+          sunday_close:sunday_close,
+        };
+        const data1={
+          data:data,
+        }
+        console.log(data1);
+        // Send a POST request to the server
+        const response = await fetch("https://us-central1-maiinn.cloudfunctions.net/app/savechanges", 
+        {
+          method: "POST",
+          body: JSON.stringify(data1),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })  
+        const jsonData = await response.json();
+        console.log(jsonData.msg);
+        
+        displayAlert(jsonData.msg);
+       // alert(jsonData.msg);
+      });
+
+      function displayAlert(str) {
+        var successAlert = document.getElementById("success-alert");
+        var response_content=document.getElementById("response_content");
+        successAlert.style.cssText = 'opacity:1';
+        response_content.innerHTML=str;
+        setTimeout(function(){
+          successAlert.style.cssText = 'opacity:0';
+        }, 2000); // 3000 milliseconds = 3 seconds
+      }
+      
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8OtxkAhwGqPIF1Ep5u-MkgtUDr-nCXAg"></script>
+  
+  </body>
+</html>

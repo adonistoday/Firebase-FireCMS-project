@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Finder | City Guide | Home v.1</title>
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="Finder - Directory &amp; Listings Bootstrap Template">
+    <meta name="keywords" content="bootstrap, business, directory, listings, e-commerce, car dealer, city guide, real estate, job board, user account, multipurpose, ui kit, html5, css3, javascript, gallery, slider, touch">
+    <meta name="author" content="Createx Studio">
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon and Touch Icons-->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" color="#5bbad5" href="safari-pinned-tab.svg">
+    <meta name="msapplication-TileColor" content="#766df4">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Page loading styles-->
+    <style>
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #666276;;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #bbb7c5;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      .bsr-photo {
+        height: 7vw;
+      }
+
+      @media ( max-width: 768px) {
+        .rounded-1 .col-3.p-0.mr-5{
+            display: none;
+        }
+        .hidden-sp {
+        display: none;
+      }
+      .navbar-brand {
+        width: 100%;
+        margin-right: 0 !important;
+      }
+      .navbar-toggler {
+        position: absolute;
+        top: 10px;
+        right: 0;
+      }
+      .card.col-6.m-2 {
+        width: 100%;
+      }
+
+      .card.col-4.m-4 {
+        width: 100%;
+      }
+
+      .col.mb-5 {
+        width: 100%;
+      }
+
+      .card.col-7.m-2 {
+        width: 100%;
+        margin: 0px !important;
+      }
+
+      .card.col-4.m-4 {
+        width: 100% !important;
+        margin: 0px !important;
+      }
+
+      #uptitle {
+        height: 16vh !important;
+      }
+
+      .mt-2.btn.btn-danger.btn-sm.rounded-pill.ms-2.order-lg-3 {
+        width: 96% !important;
+        margin-left: 0px !important;
+      }
+
+      .input-group.input-group-lg.border-end-md {
+        width: 100% !important;
+      }
+      header form{
+        width: 100%;
+      }
+      header form .btn-search{
+        margin-left:0 !important;
+      }
+      .link-for-business{
+        width: 96% !important;
+        margin-left: 0 !important;
+      }
+      }
+      
+    </style>
+    <!-- Page loading scripts-->
+    <script>
+      (function () {
+        window.onload = function () {
+          var preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 2000);
+        };
+      })();
+      
+    </script>
+    <!-- Vendor Styles-->
+    <link rel="stylesheet" media="screen" href="vendor/simplebar/dist/simplebar.min.css"/>
+    <link rel="stylesheet" media="screen" href="vendor/tiny-slider/dist/tiny-slider.css"/>
+    <link rel="stylesheet" media="screen" href="vendor/flatpickr/dist/flatpickr.min.css"/>
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="css/theme.min.css">
+  </head>
+  <!-- Body-->
+  <body>
+    <!-- Page loading spinner-->
+    <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Loading...</span>
+      </div>
+    </div>
+    <main class="page-wrapper">
+      
+    <!-- Navbar-->
+    <header class="navbar navbar-expand-lg navbar-light fixed-top" data-scroll-header style="
+     background-color: rgba(255,255,255,1);">
+      <div class="container">
+        <a class="navbar-brand me-5 me-xl-5" href="home.html"><img class="d-block mx-auto" src="img/logo/Logo.png"
+            width="116" alt="Finder"></a>
+        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span
+            class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse order-lg-2" id="navbarNav">
+          <!-- Search form-->
+          <div class="mt-2 d-sm-flex">
+            <form class="form-group d-block d-md-flex position-relative rounded-md-pill">
+              <div class="input-group input-group-lg border-end-md" style="width: 60%;"><span
+                  class="input-group-text text-muted rounded-pill ps-3">
+                  <i class="fi-search"></i></span>
+                <input class="form-control" type="text" placeholder="What are you looking for?">
+              </div>
+              <hr class="d-md-none my-2">
+              <div class="">
+                <div class="dropdown mb-sm-0 mb-3" data-bs-toggle="select">
+                  <button class="btn btn-link btn-lg dropdown-toggle ps-2 ps-sm-3" type="button"
+                    data-bs-toggle="dropdown"><i class="fi-list me-2"></i><span
+                      class="dropdown-toggle-label">Businesses</span></button>
+                  <input type="hidden">
+                  <ul class="dropdown-menu" style="margin-top: 0px !important;">
+                    <li><a class="dropdown-item" href="#"><i class="fi-bed fs-lg opacity-60 me-2"></i><span
+                          class="dropdown-item-label">Businesses</span></a></li>
+
+                    <li><a class="dropdown-item" href="#"><i class="fi-shopping-bag fs-lg opacity-60 me-2"></i><span
+                          class="dropdown-item-label">Products</span></a></li>
+                  </ul>
+                </div>
+              </div>
+              <hr class="d-md-none my-2">
+              <div class="d-sm-flex">
+                <input class="form-control" type="text" placeholder="Where?">
+              </div>
+              <hr class="d-md-none my-2">
+              <button class="btn btn-danger btn-lg rounded-pill w-100 w-md-auto ms-sm-3 btn-search" type="button">Search</button>
+            </form>
+          </div>
+          <div class="text-center d-lg-none">
+            <a class="mt-2 btn btn-danger btn-sm rounded-pill ms-2 order-lg-3"
+              href="city-guide-add-business.html">Maiinn&nbsp;Rewards</a>
+          </div>
+          <div class="text-center">
+            <a class="mt-2 btn btn-sm text-danger d-lg-block order-lg-3 link-for-business" href="#signin-modal" data-bs-toggle="modal"><i
+                class="fi-user me-2"></i>For Businesses</a>
+          </div>
+          <div class="text-center hidden-sp">
+            <a class="mt-2 btn btn-danger btn-sm rounded-pill ms-2 order-lg-3"
+              href="city-guide-add-business.html">Maiinn&nbsp;Rewards</a>
+          </div>
+        </div>
+      </div>
+    </header>
+      <!-- Page content-->
+      <!-- Hero-->
+      <section class="container py-5 mt-5 mb-lg-3" style="margin-top: 67px !important;">
+        <div class="row">
+            <!-- Left column-->
+          <div class="col-md-6 mb-md-0 mb-4 pb-md-0 pb-2" id="reviews">
+            <h2 class="h4 mb-4"><span id="search-what"></span> search results in <span id="search-where"></span></h2>
+              <!-- Review-->
+              <!-- <div class="row mb-1 border rounded-1">
+                <div class="col-3 p-0 mr-5">
+                    <img class="me-1 w-100 bsr-photo" src="img/Product_Image's/Image 12-1.jpg" alt="Avatar">
+                </div>
+                <div class="col-9">
+                  <div class="d-flex justify-content-between mb-1">
+                    <div class="d-flex align-items-center pe-6">
+                      <div class="mt-2 mb-2">
+                        <h6 class="fs-base mb-0">Woolworths Full Cream Milk 1l
+                        </h6>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="mb-1">$1.6
+                  </p>
+                  <p class="mb-1">Woolworths Parramatta
+                  </p>
+                </div>
+            </div> -->
+          </div>
+          <!-- Sidebar-->
+          <aside class="col-md-6 mt-5 py-2" id="map">
+            <!-- Location (Map)-->
+            
+                <!-- <iframe style="height: 600px;" src="http://maps.google.com/maps?q=12.927923,77.627108&z=15&output=embed" allowfullscreen></iframe> -->
+            
+          </aside>
+        </div>
+        
+      </section>
+      
+    </main>
+  <!-- Footer-->
+
+  <footer class="footer bg-dark text-light">
+    <div class="m-3 justify-content-between">
+      <div class="row gy-4 d-flex align-items-center">
+        <div class="col-lg-2 text-center">
+          <a class="d-inline-block" href="home.html"><img src="img/logo/Logo White.png" width="100" alt="Logo"></a>
+        </div>
+        <div class="col-lg-2 text-center">
+          <h3 class="fs-base text-light mb-0">Home</h3>
+        </div>
+
+        <div class="col-lg-2 text-center">
+          <h3 class="fs-base text-light mb-0">Rewards</h3>
+        </div>
+        <div class="col-lg-2 text-center">
+          <h3 class="fs-base text-light mb-0">Contact</h3>
+        </div>
+        <!-- Subscription form-->
+        <div class="col-lg-4">
+          <form class="form-group form-group-light rounded-pill" style="max-width: 500px;">
+            <div class="input-group input-group-sm"><span class="input-group-text text-muted"><i
+                  class="fi-mail"></i></span>
+              <input class="form-control" type="email" placeholder="Your email">
+            </div>
+            <button class="btn btn-primary btn-sm rounded-pill" type="button">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </footer>
+    <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon fi-chevron-up">   </i></a>
+    <!-- Vendor scrits: js libraries and plugins-->
+    <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/simplebar/dist/simplebar.min.js"></script>
+    <script src="vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="vendor/tiny-slider/dist/min/tiny-slider.js"></script>
+    <script src="vendor/flatpickr/dist/flatpickr.min.js"></script>
+    <!-- Main theme script-->
+    <script src="js/theme.min.js"></script>
+    <script>
+      function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
+      const R = 6371; // Radius of the earth in km
+      const dLat = deg2rad(lat2-lat1);  // deg2rad below
+      const dLon = deg2rad(lon2-lon1); 
+      const a = 
+        Math.sin(dLat/2) * Math.sin(dLat/2) +
+        Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
+        Math.sin(dLon/2) * Math.sin(dLon/2)
+        ; 
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+      const d = R * c; // Distance in km
+      return d;
+      }
+
+      function deg2rad(deg) {
+        return deg * (Math.PI/180)
+      }
+
+    </script>
+    <script type="module">
+      //import { create } from "/vendor/filepond/dist/filepond.js";
+      import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-storage.js";
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
+      import { collection, doc,getDoc,getDocs,getFirestore,query,where,limit,setDoc,updateDoc, addDoc } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-firestore.js";
+      const firebaseConfig = {
+          apiKey: "AIzaSyDm6z01-F-JhvfhWZt0abyU5OchwyyYdMc",
+          authDomain: "maiinn.firebaseapp.com",
+          projectId: "maiinn",
+          storageBucket: "maiinn.appspot.com",
+          messagingSenderId: "72086465434",
+          appId: "1:72086465434:web:203eef22bd420f80816823",
+          measurementId: "G-JTL518XJMC"
+      };
+      //Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+
+      const db=getFirestore(app);
+      
+      const businessRef=collection(db,"Dummy-business-list");
+      const productRef=collection(db,"Dummy-Product-List");
+      const business_docsSnap = await getDocs(businessRef);
+      const product_docsSanp=await getDocs(productRef);
+      const urlParams = new URLSearchParams(window.location.search);
+      const search_what = urlParams.get('what');
+      const search_where = urlParams.get('where');
+      const span_what=document.getElementById('search-what');
+      const span_where=document.getElementById('search-where');
+      span_what.innerHTML=search_what;
+      span_where.innerHTML=search_where;
+      const productlist=[];
+      const businesslist=[];
+      product_docsSanp.forEach(element => {
+        if(element.data()["Product Name"].includes(search_what))
+        {
+          business_docsSnap.forEach(doc=>{
+            if(element.data()["Business Name"]==doc.data()["Business name"]&&doc.data()["Address"].includes(search_where)){
+              productlist.push(element.data());
+              businesslist.push(doc.data());
+            }
+          });
+        }
+        
+      });
+      console.log(productlist);
+      var review=document.getElementById("reviews");
+      productlist.forEach(product=>{
+        const productBlock = document.createElement('div');
+        productBlock.className = 'row mb-1 border rounded-1';
+        const leftblock=document.createElement('div');
+        leftblock.className='col-3';
+
+        const productImage = document.createElement('img');
+        productImage.className = 'me-1 w-100 bsr-photo';
+        productImage.src = product["Product Image"];
+        productImage.alt = 'Avatar';
+
+        const productDetails = document.createElement('div');
+        productDetails.className = 'col-9';
+
+        const productTitleRow = document.createElement('div');
+        productTitleRow.className = 'd-flex justify-content-between mb-1';
+
+        const productTitle = document.createElement('div');
+        productTitle.className = 'd-flex align-items-center pe-6';
+
+        const productTitleText = document.createElement('div');
+        productTitleText.className = 'mt-2 mb-2';
+
+        const productName = document.createElement('h6');
+        productName.className = 'fs-base mb-0';
+        productName.textContent = product["Product Name"];
+
+        const productPrice = document.createElement('p');
+        productPrice.className = 'mb-1';
+        productPrice.textContent = product["Product Price ($)"]+"$";
+
+        const productStore = document.createElement('p');
+        productStore.className = 'mb-1';
+        productStore.textContent = product["Business Name"];
+
+        productBlock.appendChild(leftblock);
+        leftblock.appendChild(productImage);
+        productTitleText.appendChild(productName);
+        productTitle.appendChild(productTitleText);
+        productTitleRow.appendChild(productTitle);
+        productDetails.appendChild(productTitleRow);
+        productDetails.appendChild(productPrice);
+        productDetails.appendChild(productStore);
+        productBlock.appendChild(productDetails);
+
+        // Add the product block to the document body
+        review.appendChild(productBlock);
+      });
+      console.log(businesslist);
+      const geocoder = new google.maps.Geocoder();
+      const locations=[];
+      businesslist.forEach(doc=>{
+        geocoder.geocode({ address: doc["Address"] }, (results, status) => {
+            if (status === "OK") {
+              locations.push(results[0].geometry.location);
+            }
+          });
+      });
+      
+      geocoder.geocode({ address: businesslist[0]["Address"] }, (results, status) => {
+            if (status === "OK") {
+              const location = results[0].geometry.location;
+              console.log("Latitude: " + location.lat());
+              console.log("Longitude: " + location.lng());
+              const map = new google.maps.Map(document.getElementById("map"), {
+              zoom: 15,
+              center: location,
+            });
+            // Add a marker for the location
+            businesslist.forEach(doc=>{
+              geocoder.geocode({ address: doc["Address"] }, (results, status) => {
+        if (status === "OK") {
+          const markerLocation = results[0].geometry.location;
+          const distance = getDistanceFromLatLonInKm(location.lat(),location.lng(),markerLocation.lat(),markerLocation.lng())*1000;
+          console.log(distance);
+          if(distance<=5000){
+            new google.maps.Marker({
+            position: markerLocation,
+            map: map,
+            title: doc["Name"],
+          });
+          }
+          
+        } else {
+          console.log(
+            "Geocode was not successful for the following reason: " + status
+          );
+        }
+      });
+    });
+  }else {
+              console.log("Geocode was not successful for the following reason: " + status);
+            }
+      });
+      </script>
+      <script>
+      function loadMapsScript() {
+        const script = document.createElement("script");
+        script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyA8OtxkAhwGqPIF1Ep5u-MkgtUDr-nCXAg&callback=initMap`;
+        script.defer = true;
+        script.async = true;
+        document.head.appendChild(script);
+      }
+
+      // Call the loadMapsScript function to load the API
+      loadMapsScript();
+    </script>
+  </body>
+</html>

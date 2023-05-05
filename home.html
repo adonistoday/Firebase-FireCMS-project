@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Finder | City Guide | Home v.1</title>
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="Finder - Directory &amp; Listings Bootstrap Template">
+    <meta name="keywords" content="bootstrap, business, directory, listings, e-commerce, car dealer, city guide, real estate, job board, user account, multipurpose, ui kit, html5, css3, javascript, gallery, slider, touch">
+    <meta name="author" content="Createx Studio">
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon and Touch Icons-->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" color="#5bbad5" href="safari-pinned-tab.svg">
+    <meta name="msapplication-TileColor" content="#766df4">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Page loading styles-->
+    <style>
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #666276;;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #bbb7c5;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      
+    </style>
+    <!-- Page loading scripts-->
+    <script>
+      (function () {
+        window.onload = function () {
+          var preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 2000);
+        };
+      })();
+      
+    </script>
+    <!-- Vendor Styles-->
+    <link rel="stylesheet" media="screen" href="vendor/simplebar/dist/simplebar.min.css"/>
+    <link rel="stylesheet" media="screen" href="vendor/tiny-slider/dist/tiny-slider.css"/>
+    <link rel="stylesheet" media="screen" href="vendor/flatpickr/dist/flatpickr.min.css"/>
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="css/theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.2/awesomplete.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.2/awesomplete.min.js"></script>
+
+  </head>
+  <!-- Body-->
+  <body>
+    <!-- Page loading spinner-->
+    <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Loading...</span>
+      </div>
+    </div>
+    <main class="page-wrapper">
+
+
+
+      <!-- Page content-->
+      <!-- Hero-->
+      <section class="container py-5 mt-5 mb-lg-3 border-bottom" style="height: 750px;">
+        <div class="row align-items-center mt-md-2">
+          <div class="col-lg-6 order-lg-2 mb-lg-0 mb-4 pb-2 pb-lg-0"><img class="d-block mx-auto" src="img/city-guide/home/hero-img.jpg" width="746" alt="Hero image"></div>
+          <div class="col-lg-6 order-lg-1 pe-lg-0">
+            <h1 class="display-5 mb-4 me-lg-n5 text-lg-start text-center mb-4">Connect with local businesses in Sydney</h1>
+            <p class="text-lg-start text-center mb-4 mb-lg-5 fs-5">Use Maiinn to find local businesses and products</p>
+            <!-- Search form-->
+            <div class="me-lg-n5">
+              <form class="form-group d-block d-md-flex position-relative rounded-md-pill">
+                <div class="input-group input-group-lg border-end-md"><span class="input-group-text text-muted rounded-pill ps-3">
+                  <i class="fi-search"></i></span>
+                  <input class="form-control" id="search-what" type="text" placeholder="What are you looking for?">
+                </div>
+                <hr class="d-md-none my-2">
+                <div class="d-sm-flex">
+                  <div class="dropdown mb-sm-0 mb-3" data-bs-toggle="select">
+                    <button class="btn btn-link btn-lg dropdown-toggle ps-2 ps-sm-3" type="button" data-bs-toggle="dropdown"><i class="fi-list me-2"></i><span class="dropdown-toggle-label">Businesses</span></button>
+                    <input type="hidden">
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#"><i class="fi-entertainment fs-lg opacity-60 me-2"></i><span class="dropdown-item-label">Businesses</span></a></li>
+                      
+                      <li><a class="dropdown-item" href="#"><i class="fi-shopping-bag fs-lg opacity-60 me-2"></i><span class="dropdown-item-label">Products</span></a></li>
+                      
+                    </ul>
+                  </div>
+                </div>
+                <hr class="d-md-none my-2">
+                <div class="d-sm-flex">
+                <input class="form-control" id="search-where" type="text" placeholder="Where?">
+                </div>
+                  <button class="btn btn-primary btn-lg rounded-pill w-100 w-md-auto ms-sm-3" type="button" id="btn-search">Search</button>
+              </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="container mt-5 mt-n3 mt-md-0 mb-5 pb-lg-4 text-center border-bottom">
+        <h1 class="mt-5">Maiinn Rewards</h1>
+        <p class="mb-4 fs-5">Earn Cashback for your receipts with Maiinn</p>
+        <button type="button" class="m-5 btn btn-success">Go to Maiinn Rewards</button>
+      </section>
+    </main>
+  <!-- Footer-->
+
+  <footer class="footer bg-dark text-light">
+    <div class="m-3 justify-content-between">
+      <div class="row gy-4 d-flex align-items-center">
+        <div class="col-lg-2 text-center">
+          <a class="d-inline-block" href="home.html"><img src="img/logo/Logo White.png" width="100" alt="Logo"></a>
+        </div>
+        <div class="col-lg-2 text-center">
+          <h3 class="fs-base text-light mb-0">Home</h3>
+        </div>
+
+        <div class="col-lg-2 text-center">
+          <h3 class="fs-base text-light mb-0">Rewards</h3>
+        </div>
+        <div class="col-lg-2 text-center">
+          <h3 class="fs-base text-light mb-0">Contact</h3>
+        </div>
+        <!-- Subscription form-->
+        <div class="col-lg-4">
+          <form class="form-group form-group-light rounded-pill" style="max-width: 500px;">
+            <div class="input-group input-group-sm"><span class="input-group-text text-muted"><i
+                  class="fi-mail"></i></span>
+              <input class="form-control" type="email" placeholder="Your email">
+            </div>
+            <button class="btn btn-primary btn-sm rounded-pill" type="button">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </footer>
+    <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon fi-chevron-up">   </i></a>
+    <!-- Vendor scrits: js libraries and plugins-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/simplebar/dist/simplebar.min.js"></script>
+    <script src="vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="vendor/tiny-slider/dist/min/tiny-slider.js"></script>
+    <script src="vendor/flatpickr/dist/flatpickr.min.js"></script>
+    <!-- Main theme script-->
+    <script src="js/theme.min.js"></script>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-analytics.js";
+      import { getFirestore } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-firestore.js";
+      import { collection, doc, setDoc,getDocs} from "https://www.gstatic.com/firebasejs/9.20.0/firebase-firestore.js"; 
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+    
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyDm6z01-F-JhvfhWZt0abyU5OchwyyYdMc",
+        authDomain: "maiinn.firebaseapp.com",
+        projectId: "maiinn",
+        storageBucket: "maiinn.appspot.com",
+        messagingSenderId: "72086465434",
+        appId: "1:72086465434:web:203eef22bd420f80816823",
+        measurementId: "G-JTL518XJMC"
+      };
+    
+      //Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+
+      const db=getFirestore(app);
+      var selectedItem="";
+      $('.dropdown-menu a').on('click', function() {
+        // Get the selected item's value
+        selectedItem = $(this).text().trim();
+        
+        // Update a variable or element with the selected item's value
+        console.log('Selected item:', selectedItem);
+      });
+
+      const citiesRef=collection(db,"au-towns");
+      const docsSnap = await getDocs(citiesRef);
+      docsSnap.forEach(doc => {
+         // console.log(doc.data());
+      });
+      const searchInput = document.getElementById('search-where');
+
+      const list = [];
+      // Loop through the documents in the "au-towns" collection and add their IDs to the list
+      docsSnap.forEach(doc => {
+        list.push(doc.data().state_code);
+      //  console.log(doc.data().region);
+      });
+
+      // Create an awesomplete widget for the input field and populate it with the list of IDs
+      const awesomplete = new Awesomplete(searchInput, {
+        list: list
+      });
+
+      // Add an event listener to the input field to handle when the user selects a suggestion
+      searchInput.addEventListener('awesomplete-selectcomplete', function(event) {
+        const selectedID = event.text.value;
+        console.log(selectedID);
+      //   docsSnap.forEach(doc => {
+      //     //console.log(doc.data()["Business name"]);
+      //     if(doc.data()["Business name"].includes(selectedID)) console.log(doc.data()["Business name"]);
+      // });
+      });
+
+      const businessRef=collection(db,"Dummy-business-list");
+      const business_docsSnap = await getDocs(businessRef);
+
+      const search_business_Input = document.getElementById('search-what');
+      const list_business = [];
+
+      // Loop through the documents in the "au-towns" collection and add their IDs to the list
+      business_docsSnap.forEach(doc => {
+        list_business.push(doc.data()["Business name"]);
+        //if(doc.data()["Business name"].includes("Pizza")) console.log(doc.data()["Business name"]);
+        //console.log(doc.data()["Business name"]);
+      });
+
+      // Create an awesomplete widget for the input field and populate it with the list of IDs
+      const business_awesomplete = new Awesomplete(search_business_Input, {
+        list: list_business
+      });
+
+      // Add an event listener to the input field to handle when the user selects a suggestion
+      search_business_Input.addEventListener('awesomplete-selectcomplete', function(event) {
+        const selectedID = event.text.value;
+        console.log(selectedID);
+      //   business_docsSnap.forEach(doc => {
+      //     //console.log(doc.data()["Business name"]);
+      //     if(doc.data()["Business name"].includes(selectedID)) console.log(doc.data()["Business name"]);
+      // });
+      });
+      const btn_search = document.getElementById('btn-search');
+
+      btn_search.addEventListener('click', () => {
+        // code to be executed when the button is clicked
+        console.log('Button clicked!');
+        console.log(searchInput.value);
+        console.log(search_business_Input.value);
+        business_docsSnap.forEach(doc => {
+          //console.log(doc.data()["Business name"]);
+          if(doc.data()["Business name"].includes(search_business_Input.value)&&doc.data()["Address"].includes(searchInput.value)) console.log(doc.data()["Address"]);
+        });
+        if(selectedItem=="businesses"){
+          window.location.href = `business-search-result.html?what=${search_business_Input.value}&where=${searchInput.value}`;
+        }
+        else{
+          window.location.href = `product-search-result.html?what=${search_business_Input.value}&where=${searchInput.value}`;
+        }
+        
+      }
+      );
+    </script>
+    <!-- <script>
+      function initAutocomplete() {
+        // Create the autocomplete object and link it to the search box
+        var autocomplete = new google.maps.places.Autocomplete(
+            document.getElementById('search-where'));
+
+        // Set the types of places to include in the autocomplete results
+        autocomplete.setTypes(['geocode', 'establishment']);
+
+        // Listen for the place_changed event
+        autocomplete.addListener('place_changed', function() {
+          // Retrieve the details of the selected place
+          var place = autocomplete.getPlace();
+          console.log(place);
+
+          // Search for businesses within 5 kilometers of the selected place
+          var request = {
+            location: place.geometry.location,
+            radius: '5000',
+            type: ['restaurant', 'cafe', 'bar'] // specify the types of businesses to search for
+          };
+
+          // Create a dummy map object
+          var map = new google.maps.Map(document.createElement('div'));
+
+          // Create a PlacesService object and perform the nearby search
+          var service = new google.maps.places.PlacesService(map);
+          service.nearbySearch(request, function(results, status) {
+            if (status === google.maps.places.PlacesServiceStatus.OK) {
+              console.log(results);
+              // Convert the results array to a JSON string
+              var resultsJson = JSON.stringify(results);
+              // Encode the JSON string as a query parameter in the URL
+              var url = 'business-search-result.html?results=' + encodeURIComponent(resultsJson);
+              // Redirect the user to the search-results.html page
+              window.location.href = url;
+            }
+          });
+
+        });
+      }
+    </script> -->
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8OtxkAhwGqPIF1Ep5u-MkgtUDr-nCXAg&libraries=places&callback=initAutocomplete" async defer></script>
+
+  </body>
+</html>
+

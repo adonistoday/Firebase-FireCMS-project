@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Finder | City Guide | Home v.1</title>
+  <!-- SEO Meta Tags-->
+  <meta name="description" content="Finder - Directory &amp; Listings Bootstrap Template">
+  <meta name="keywords"
+    content="bootstrap, business, directory, listings, e-commerce, car dealer, city guide, real estate, job board, user account, multipurpose, ui kit, html5, css3, javascript, gallery, slider, touch">
+  <meta name="author" content="Createx Studio">
+  <!-- Viewport-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Favicon and Touch Icons-->
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="mask-icon" color="#5bbad5" href="safari-pinned-tab.svg">
+  <meta name="msapplication-TileColor" content="#766df4">
+  <meta name="theme-color" content="#ffffff">
+  <!-- Page loading scripts-->
+  <script>
+    (function () {
+      window.onload = function () {
+        var preloader = document.querySelector('.page-loading');
+        preloader.classList.remove('active');
+        setTimeout(function () {
+          preloader.remove();
+        }, 2000);
+      };
+    })();
+
+  </script>
+  <!-- Vendor Styles-->
+  <link rel="stylesheet" media="screen" href="vendor/simplebar/dist/simplebar.min.css" />
+  <link rel="stylesheet" media="screen" href="vendor/tiny-slider/dist/tiny-slider.css" />
+  <link rel="stylesheet" media="screen" href="vendor/flatpickr/dist/flatpickr.min.css" />
+  <!-- Main Theme Styles + Bootstrap-->
+  <link rel="stylesheet" media="screen" href="css/theme.min.css">
+  <link rel="stylesheet" media="screen" href="vendor/prismjs/themes/prism.css" />
+  <link rel="stylesheet" media="screen" href="vendor/prismjs/plugins/toolbar/prism-toolbar.css">
+  <link rel="stylesheet" media="screen" href="vendor/prismjs/plugins/line-numbers/prism-line-numbers.css" />
+  <link rel="stylesheet" media="screen" href="vendor/nouislider/dist/nouislider.min.css" />
+
+  <!-- Page loading styles-->
+  <style>
+    .page-loading {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      -webkit-transition: all .4s .2s ease-in-out;
+      transition: all .4s .2s ease-in-out;
+      background-color: #fff;
+      opacity: 0;
+      visibility: hidden;
+      z-index: 9999;
+    }
+
+    .page-loading.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .page-loading-inner {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+      -webkit-transition: opacity .2s ease-in-out;
+      transition: opacity .2s ease-in-out;
+      opacity: 0;
+    }
+
+    .page-loading.active>.page-loading-inner {
+      opacity: 1;
+    }
+
+    .page-loading-inner>span {
+      display: block;
+      font-size: 1rem;
+      font-weight: normal;
+      color: #666276;
+      ;
+    }
+
+    .page-spinner {
+      display: inline-block;
+      width: 2.75rem;
+      height: 2.75rem;
+      margin-bottom: .75rem;
+      vertical-align: text-bottom;
+      border: .15em solid #bbb7c5;
+      border-right-color: transparent;
+      border-radius: 50%;
+      -webkit-animation: spinner .75s linear infinite;
+      animation: spinner .75s linear infinite;
+    }
+
+    @-webkit-keyframes spinner {
+      100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes spinner {
+      100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+
+    .bsr-photo {
+      height: 7vw;
+    }
+
+    @media (max-width: 768px) {
+      .hidden-sp {
+        display: none;
+      }
+      .navbar-brand {
+        width: 100%;
+        margin-right: 0 !important;
+      }
+      .navbar-toggler {
+        position: absolute;
+        top: 10px;
+        right: 0;
+      }
+      .card.col-6.m-2 {
+        width: 100%;
+      }
+
+      .card.col-4.m-4 {
+        width: 100%;
+      }
+
+      .col.mb-5 {
+        width: 100%;
+      }
+
+      .card.col-7.m-2 {
+        width: 100%;
+        margin: 0px !important;
+      }
+
+      .card.col-4.m-4 {
+        width: 100% !important;
+        margin: 0px !important;
+      }
+
+      #uptitle {
+        height: 16vh !important;
+      }
+
+      .mt-2.btn.btn-danger.btn-sm.rounded-pill.ms-2.order-lg-3 {
+        width: 96% !important;
+        margin-left: 0px !important;
+      }
+
+      .input-group.input-group-lg.border-end-md {
+        width: 100% !important;
+      }
+      header form{
+        width: 100%;
+      }
+      header form .btn-search{
+        margin-left:0 !important;
+      }
+      .link-for-business{
+        width: 96% !important;
+        margin-left: 0 !important;
+      }
+    }
+
+    .card.col-4.m-4 {
+      margin-bottom: 180px !important;
+    }
+  </style>
+</head>
+<!-- Body-->
+
+<body>
+  <!-- Page loading spinner-->
+  <div class="page-loading active">
+    <div class="page-loading-inner">
+      <div class="page-spinner"></div><span>Loading...</span>
+    </div>
+  </div>
+  <main class="page-wrapper">
+
+    <!-- Navbar-->
+    <header class="navbar navbar-expand-lg navbar-light fixed-top" data-scroll-header style="
+     background-color: rgba(255,255,255,1);">
+      <div class="container">
+        <a class="navbar-brand me-5 me-xl-5" href="home.html"><img class="d-block mx-auto" src="img/logo/Logo.png"
+            width="116" alt="Finder"></a>
+        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span
+            class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse order-lg-2" id="navbarNav">
+          <!-- Search form-->
+          <div class="mt-2 d-sm-flex">
+            <form class="form-group d-block d-md-flex position-relative rounded-md-pill">
+              <div class="input-group input-group-lg border-end-md" style="width: 60%;"><span
+                  class="input-group-text text-muted rounded-pill ps-3">
+                  <i class="fi-search"></i></span>
+                <input class="form-control" type="text" placeholder="What are you looking for?">
+              </div>
+              <hr class="d-md-none my-2">
+              <div class="">
+                <div class="dropdown mb-sm-0 mb-3" data-bs-toggle="select">
+                  <button class="btn btn-link btn-lg dropdown-toggle ps-2 ps-sm-3" type="button"
+                    data-bs-toggle="dropdown"><i class="fi-list me-2"></i><span
+                      class="dropdown-toggle-label">Businesses</span></button>
+                  <input type="hidden">
+                  <ul class="dropdown-menu" style="margin-top: 0px !important;">
+                    <li><a class="dropdown-item" href="#"><i class="fi-bed fs-lg opacity-60 me-2"></i><span
+                          class="dropdown-item-label">Businesses</span></a></li>
+
+                    <li><a class="dropdown-item" href="#"><i class="fi-shopping-bag fs-lg opacity-60 me-2"></i><span
+                          class="dropdown-item-label">Products</span></a></li>
+                  </ul>
+                </div>
+              </div>
+              <hr class="d-md-none my-2">
+              <div class="d-sm-flex">
+                <input class="form-control" type="text" placeholder="Where?">
+              </div>
+              <hr class="d-md-none my-2">
+              <button class="btn btn-danger btn-lg rounded-pill w-100 w-md-auto ms-sm-3 btn-search" type="button">Search</button>
+            </form>
+          </div>
+          <div class="text-center d-lg-none">
+            <a class="mt-2 btn btn-danger btn-sm rounded-pill ms-2 order-lg-3"
+              href="city-guide-add-business.html">Maiinn&nbsp;Rewards</a>
+          </div>
+          <div class="text-center">
+            <a class="mt-2 btn btn-sm text-danger d-lg-block order-lg-3 link-for-business" href="#signin-modal" data-bs-toggle="modal"><i
+                class="fi-user me-2"></i>For Businesses</a>
+          </div>
+          <div class="text-center hidden-sp">
+            <a class="mt-2 btn btn-danger btn-sm rounded-pill ms-2 order-lg-3"
+              href="city-guide-add-business.html">Maiinn&nbsp;Rewards</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+  </main>
+  <!-- Footer-->
+
+  <footer class="footer bg-dark text-light">
+    <div class="m-3 justify-content-between">
+      <div class="row gy-4 d-flex align-items-center">
+        <div class="col-lg-2 text-center">
+          <a class="d-inline-block" href="home.html"><img src="img/logo/Logo White.png" width="100" alt="Logo"></a>
+        </div>
+        <div class="col-lg-2 text-center">
+          <h3 class="fs-base text-light mb-0">Home</h3>
+        </div>
+
+        <div class="col-lg-2 text-center">
+          <h3 class="fs-base text-light mb-0">Rewards</h3>
+        </div>
+        <div class="col-lg-2 text-center">
+          <h3 class="fs-base text-light mb-0">Contact</h3>
+        </div>
+        <!-- Subscription form-->
+        <div class="col-lg-4">
+          <form class="form-group form-group-light rounded-pill" style="max-width: 500px;">
+            <div class="input-group input-group-sm"><span class="input-group-text text-muted"><i
+                  class="fi-mail"></i></span>
+              <input class="form-control" type="email" placeholder="Your email">
+            </div>
+            <button class="btn btn-primary btn-sm rounded-pill" type="button">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll><span
+      class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon fi-chevron-up">
+    </i></a>
+  <!-- Vendor scrits: js libraries and plugins-->
+  <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/simplebar/dist/simplebar.min.js"></script>
+  <script src="vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+  <script src="vendor/tiny-slider/dist/min/tiny-slider.js"></script>
+  <script src="vendor/flatpickr/dist/flatpickr.min.js"></script>
+  <!-- Main theme script-->
+  <script src="js/theme.min.js"></script>
+  <script src="vendor/prismjs/components/prism-core.min.js"></script>
+  <script src="vendor/prismjs/components/prism-markup.min.js"></script>
+  <script src="vendor/prismjs/components/prism-clike.min.js"></script>
+  <script src="vendor/prismjs/components/prism-javascript.min.js"></script>
+  <script src="vendor/prismjs/components/prism-pug.min.js"></script>
+  <script src="vendor/prismjs/plugins/toolbar/prism-toolbar.min.js"></script>
+  <script src="vendor/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+  <script src="vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js"></script>
+  <script src="vendor/nouislider/dist/nouislider.min.js"></script>
+</body>
+
+</html>
